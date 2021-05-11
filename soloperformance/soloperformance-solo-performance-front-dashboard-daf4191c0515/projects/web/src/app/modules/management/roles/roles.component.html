@@ -1,0 +1,75 @@
+<div class="mt-4">
+  <sp-card>
+    <web-table matSort [paginatorConfig]="paginatorConfig" [data]="data" [columns]="columns">
+      <!-- Nombre e imagen del usuario -->
+      <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef class="sp-table__th" mat-sort-header>User</th>
+          <td mat-cell *matCellDef="let row" class="sp-table__td align-items-center py-3 d-flex">
+              <button mat-icon-button (click)="showUserDetail(row)">
+                <img *ngIf="row.img" [src]="row.img" alt="img" width="40" height="40" [ngStyle]="{'border-radius':'50%'}">
+                <img *ngIf="!row.img" src="assets/icons/camera.svg" alt="delete">
+              </button>
+              <div class="sp-value ml-2">{{row.full_name}}</div>
+          </td>
+      </ng-container>
+
+      <!-- Equipo -->
+      <ng-container matColumnDef="team">
+          <th mat-header-cell *matHeaderCellDef class="sp-table__th" mat-sort-header>Team</th>
+          <td mat-cell *matCellDef="let row" class="sp-table__td align-center py-3">
+              <div class="sp-value">{{row.team}}</div>
+          </td>
+      </ng-container>
+
+      <!-- Email -->
+      <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef class="sp-table__th" mat-sort-header>Email</th>
+          <td mat-cell *matCellDef="let row" class="sp-table__td align-center py-3">
+              <div class="sp-value">{{row.email}}</div>
+          </td>
+      </ng-container>
+
+      <!-- rol -->
+      <ng-container matColumnDef="rol">
+          <th mat-header-cell *matHeaderCellDef class="sp-table__th" mat-sort-header>User role</th>
+          <td mat-cell *matCellDef="let row" class="sp-table__td align-center py-3">
+            <div class="sp-value">{{row.rol}}</div>
+          </td>
+      </ng-container>
+
+      <!-- telefono -->
+      <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef class="sp-table__th" mat-sort-header>Telefono</th>
+          <td mat-cell *matCellDef="let row" class="sp-table__td align-center py-3">
+            <div class="sp-value">{{row.phone}}</div>
+          </td>
+      </ng-container>
+
+      <!-- Fecha de edicion -->
+      <ng-container matColumnDef="edit_at">
+          <th mat-header-cell *matHeaderCellDef class="sp-table__th" mat-sort-header>Last edited</th>
+          <td mat-cell *matCellDef="let row" class="sp-table__td align-center py-3">
+              <div class="sp-value">{{row.last_edited?.full_name}}</div>
+              <div class="sp-value sp-value--secondary">{{'2020-06-25' | date:'mediumDate'}}</div>
+          </td>
+      </ng-container>
+
+      <!-- Acciones -->
+      <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef class="sp-table__th sp-table__th--center">Actions
+          </th>
+          <td mat-cell *matCellDef="let row" class="sp-table__td sp-table__td--center py-3">
+              <button mat-icon-button (click)="showUserDetail(row)">
+                <img src="assets/icons/trash.svg" alt="delete">
+              </button>
+              <button mat-icon-button (click)="showUserDetail(row)">
+                <img src="assets/icons/lock.svg" alt="password">
+              </button>
+              <button mat-icon-button (click)="editUser(row)">
+                <img src="assets/icons/edit.svg" alt="edit">
+              </button>
+          </td>
+      </ng-container>
+    </web-table>
+  </sp-card>
+</div>

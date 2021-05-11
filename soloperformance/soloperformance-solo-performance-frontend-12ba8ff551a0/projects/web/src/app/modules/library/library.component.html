@@ -1,0 +1,14 @@
+<div class="menu bold mb-4">
+  <a routerLinkActive="active" [routerLink]="'roles'">Roles</a>
+  <a routerLinkActive="active" [routerLink]="'teams'">Teams</a>
+  <a routerLinkActive="active" [routerLink]="'athletes'">Athletes</a>
+</div>
+
+<sp-card>
+  <div class="d-flex justify-content-end">
+    <sp-input-search></sp-input-search>
+    <button class="btn btn-primary ml-4" type="button" name="button" (click)="add()">New {{btnAdd}}</button>
+  </div>
+</sp-card>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,39 @@
+<sp-card>
+    <sp-header [fluid]="true">
+        <sp-header-group [expanded]="true">
+            <a class="sp-link-button"
+                mat-button
+                routerLinkActive="sp-link-button--selected"
+                [routerLink]="['./all-workouts']">
+                All
+            </a>
+            <a class="sp-link-button"
+                mat-button
+                routerLinkActive="sp-link-button--selected"
+                [routerLink]="['./my-workouts']">
+                My workouts
+            </a>
+            <a class="sp-link-button"
+                mat-button
+                routerLinkActive="sp-link-button--selected"
+                [routerLink]="['./institutional-workouts']">
+                Institutional workouts
+            </a>
+        </sp-header-group>
+        <sp-header-group>
+            <sp-input-search class="my-n2"
+                [placeholder]="'Search a workout’s name'">
+            </sp-input-search>
+            <button class="ml-3"
+                mat-flat-button color="primary"
+                [routerLink]="['../workout-builder']">
+                New workout
+            </button>
+        </sp-header-group>
+    </sp-header>
+</sp-card>
+<div class="mt-4">
+    <sp-card>
+        <router-outlet></router-outlet>
+    </sp-card>
+</div>

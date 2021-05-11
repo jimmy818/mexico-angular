@@ -1,0 +1,41 @@
+:host {
+    display: block;
+}
+
+.sp-panel {
+    &__container {
+        background: #FFFFFF;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__header {
+        display: flex;
+
+        &-collapse {}
+
+        &-content {
+            flex-grow: 1;
+        }
+    }
+
+    &__body {
+        overflow: hidden;
+        //transition: all 0.25s ease-out;
+
+        &--collapsed {
+            height: 0;
+        }
+    }
+
+    &__collapse-button {
+        transform: rotate(0);
+        transition: transform 0.15s linear;
+
+        &--collapsed {
+            transform: rotate(-180deg);
+        }
+    }
+}

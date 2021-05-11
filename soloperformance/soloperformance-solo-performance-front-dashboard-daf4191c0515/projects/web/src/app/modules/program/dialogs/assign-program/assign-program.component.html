@@ -1,0 +1,50 @@
+<sp-dialog>
+    <sp-dialog-title
+        title="Assign program"
+        subtitle="Select the teams or athletes for the program">
+    </sp-dialog-title>
+    <sp-dialog-content>
+
+      <!-- listado de equipos -->
+      <mat-tab-group>
+        <mat-tab *ngFor="let item of teams">
+          <ng-template mat-tab-label >
+            <img width="45" [src]="item.photo" alt="" class="p-1" (click)="team = item; getAthletes()">
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+
+      <!-- Selección de atletas -->
+      <div class="web-athletes__container">
+          <span class="my-3 text-muted">Select the athletes for the team</span>
+          <sp-input-search
+              [createParams]="false"
+              [width]="100"
+              [placeholder]="'Search an athlete’s name'"
+              (valueChange)="getAthletes($event)">
+          </sp-input-search>
+          <div class="web-athletes__selection flex-grow-1 mt-2">
+              <div class="web-athletes__select-all">
+                  <span class="text-muted">Athletes</span>
+                  <mat-checkbox class="mb-n2"
+                      [checked]="selectAllAthletesChecked"
+                      (change)="onAthletesSelectAll($event)">
+                  </mat-checkbox>
+              </div>
+              <div class="web-athletes__list">
+                  <mat-selection-list #athletesList (selectionChange)="onAthleteListSelectionChange()">
+                      <mat-list-option *ngFor="let athlete of athletes" [value]="athlete" [selected]="athlete.selected">
+                          <img matListAvatar [src]="athlete.photo" alt="">
+                          <span matLine>{{athlete.name}}</span>
+                      </mat-list-option>
+                  </mat-selection-list>
+              </div>
+          </div>
+      </div>
+
+    </sp-dialog-content>
+    <sp-dialog-actions>
+      <button mat-stroked-button color="primary" [mat-dialog-close]="null" type="button">Cancel</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Save changes</button>
+    </sp-dialog-actions>
+</sp-dialog>

@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row text-center">
+      <div class="col-4">
+        <button mat-icon-button mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()"><img src="assets/icons/chevron-left.svg" alt="prev"></button>
+      </div>
+      <div class="col-4 d-flex justify-content-center align-items-center">
+        <h5 class="font-weight-bold mb-0">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h5>
+      </div>
+      <div class="col-4">
+        <button mat-icon-button mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()"><img src="assets/icons/chevron-right.svg" alt="next"></button>
+      </div>
+  </div>
+  <mwl-calendar-month-view
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    [activeDayIsOpen]="activeDayIsOpen"
+    (dayClicked)="dayClicked($event.day)"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)"
+    [cellTemplate]="customCellTemplate"
+    >
+  </mwl-calendar-month-view>
+
+  <ng-template #customCellTemplate let-day="day" let-locale="locale">
+    <div class="cal-cell-top">
+      <span class="cal-day-badge" *ngIf="day.badgeTotal > 1"
+        >{{ day.badgeTotal }}</span
+      >
+      <span class="cal-day-number" *ngIf="day.badgeTotal < 1"
+        >{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span
+      >
+    </div>
+    <!-- mwlDraggable -->
+    <span class="event" *ngIf="day.badgeTotal > 0"
+      >Total body</span>
+  </ng-template>
+
+  <ng-template #modalContent let-close="close">
+    <div class="modal-header">
+      <h5 class="modal-title">Event action occurred</h5>
+      <button type="button" class="close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        Action:
+        <pre>{{ modalData?.action }}</pre>
+      </div>
+      <div>
+        Event:
+        <pre>{{ modalData?.event | json }}</pre>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="close()">
+        OK
+      </button>
+    </div>
+  </ng-template>
+</div>
+
+<!-- Everything you see below is just for the demo, you don't need to include it in your app -->
+<!-- <button class="btn btn-primary float-right" (click)="addEvent()">
+  Add new
+</button> -->

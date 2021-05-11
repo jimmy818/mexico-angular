@@ -1,0 +1,1216 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-08 10:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/catalog/fields.py:18
+msgid "Team does not exit."
+msgstr "El equipo no existe"
+
+#: apps/catalog/fields.py:46
+msgid "CodingCategory does not exit."
+msgstr "La codificación de la categoría no existe."
+
+#: apps/catalog/fields.py:59
+msgid "BlockType does not exit."
+msgstr "El tipo de bloque no existe."
+
+#: apps/catalog/fields.py:73
+msgid "Program does not exit."
+msgstr "El programa no existe."
+
+#: apps/catalog/fields.py:87
+msgid "Phase does not exit."
+msgstr "La fase no existe."
+
+#: apps/catalog/fields.py:101
+msgid "Week does not exit."
+msgstr "La semana no existe."
+
+#: apps/catalog/fields.py:115
+msgid "Day does not exit."
+msgstr "El dia no existe."
+
+#: apps/catalog/fields.py:129
+msgid "Workout does not exit."
+msgstr "El workout no existe."
+
+#: apps/catalog/models.py:56 apps/catalog/models.py:74
+msgid "Category name"
+msgstr "Nombre de categoría"
+
+#: apps/catalog/models.py:59 apps/catalog/models.py:83
+msgid "category active"
+msgstr ""
+
+#: apps/catalog/models.py:75
+msgid "Code category"
+msgstr "Código de categoría"
+
+#: apps/catalog/models.py:100
+msgid "Subcategory name"
+msgstr "Nombre de la subcategoría"
+
+#: apps/catalog/models.py:102
+msgid "Code"
+msgstr "Código"
+
+#: apps/catalog/models.py:107
+msgid "Category"
+msgstr "Categoría"
+
+#: apps/catalog/models.py:112
+msgid "Level of subcategory"
+msgstr "Nivel de subcategoría"
+
+#: apps/catalog/models.py:117
+msgid "Category many level"
+msgstr ""
+
+#: apps/catalog/models.py:118
+msgid "category_many_level"
+msgstr ""
+
+#: apps/catalog/models.py:120
+msgid "Image Equipment"
+msgstr ""
+
+#: apps/catalog/models.py:123
+msgid "subcategory active"
+msgstr "subcategoría activa"
+
+#: apps/catalog/models.py:140
+msgid "Name english"
+msgstr "Nombre en ingles"
+
+#: apps/catalog/models.py:141
+msgid "Identifier"
+msgstr "Identificador"
+
+#: apps/catalog/models.py:142
+msgid "Name spanish"
+msgstr "Nombre en español"
+
+#: apps/catalog/models.py:143
+msgid "Subcategories Exercise"
+msgstr ""
+
+#: apps/catalog/models.py:147
+msgid "Created by"
+msgstr "Creado por"
+
+#: apps/catalog/models.py:153
+msgid "active"
+msgstr "Activo"
+
+#: apps/catalog/models.py:154 apps/catalog/models.py:622
+msgid "has library"
+msgstr "¿Es una librería?"
+
+#: apps/catalog/models.py:155
+msgid "Note of excercice"
+msgstr "Descripción"
+
+#: apps/catalog/models.py:156
+msgid "request active"
+msgstr ""
+
+#: apps/catalog/models.py:179 apps/coach/models.py:232
+msgid "Name Category"
+msgstr "Nombre de categoría"
+
+#: apps/catalog/models.py:180
+msgid "Equipment related"
+msgstr ""
+
+#: apps/catalog/models.py:181
+msgid "Ordering"
+msgstr "Ordenamiento"
+
+#: apps/catalog/models.py:189 apps/catalog/models.py:208
+msgid "Related Exercice"
+msgstr ""
+
+#: apps/catalog/models.py:190 apps/catalog/models.py:209
+msgid "Path s3 Exercice"
+msgstr ""
+
+#: apps/catalog/models.py:191
+msgid "Path s3 thumbnail Exercice"
+msgstr ""
+
+#: apps/catalog/models.py:229
+msgid "Program name"
+msgstr "Nombre del programa"
+
+#: apps/catalog/models.py:230
+msgid "Assigned team"
+msgstr "Equipo asignado"
+
+#: apps/catalog/models.py:233 apps/catalog/models.py:540
+msgid "Assigned athletes"
+msgstr "Atletas asignados"
+
+#: apps/catalog/models.py:235
+msgid "Program active"
+msgstr "¿Programa activo?"
+
+#: apps/catalog/models.py:239
+msgid "created_by program"
+msgstr ""
+
+#: apps/catalog/models.py:247
+msgid "updated_by program"
+msgstr ""
+
+#: apps/catalog/models.py:252 apps/catalog/models.py:297
+#: apps/catalog/models.py:467 apps/catalog/models.py:560
+msgid "library active"
+msgstr "¿Librería activa?"
+
+#: apps/catalog/models.py:271
+msgid "Phase name"
+msgstr "Nombre de la fase"
+
+#: apps/catalog/models.py:274
+msgid "Program phase"
+msgstr ""
+
+#: apps/catalog/models.py:279
+msgid "Order of phase"
+msgstr ""
+
+#: apps/catalog/models.py:280
+msgid "Phase active"
+msgstr ""
+
+#: apps/catalog/models.py:284
+msgid "created_by phase"
+msgstr "Creado por"
+
+#: apps/catalog/models.py:292
+msgid "updated_by phase"
+msgstr "Modificado por"
+
+#: apps/catalog/models.py:316
+msgid "Week name"
+msgstr "Nombre de la semana"
+
+#: apps/catalog/models.py:317
+msgid "week starts"
+msgstr "Inicio de la semana"
+
+#: apps/catalog/models.py:318
+msgid "week ends"
+msgstr "Fin de la semana"
+
+#: apps/catalog/models.py:321
+msgid "Phase week"
+msgstr ""
+
+#: apps/catalog/models.py:327
+msgid "number week"
+msgstr "Numero de semana"
+
+#: apps/catalog/models.py:329
+msgid "Order of week"
+msgstr ""
+
+#: apps/catalog/models.py:330
+msgid "Week active"
+msgstr ""
+
+#: apps/catalog/models.py:334
+msgid "created_by week"
+msgstr "Creado por"
+
+#: apps/catalog/models.py:342
+msgid "updated_by week"
+msgstr "Modificado por"
+
+#: apps/catalog/models.py:347
+msgid "has_library"
+msgstr ""
+
+#: apps/catalog/models.py:385
+msgid "Day name"
+msgstr "Nombre del día"
+
+#: apps/catalog/models.py:390
+msgid "Week day"
+msgstr ""
+
+#: apps/catalog/models.py:399
+msgid "created_by day"
+msgstr "Creado por"
+
+#: apps/catalog/models.py:407
+msgid "updated_by day"
+msgstr "Modificado por"
+
+#: apps/catalog/models.py:431
+msgid "Workout name"
+msgstr "Nombre del workout"
+
+#: apps/catalog/models.py:434
+msgid "Day workout"
+msgstr ""
+
+#: apps/catalog/models.py:439
+msgid "Start time"
+msgstr "Hora de inicio"
+
+#: apps/catalog/models.py:440
+msgid "End time"
+msgstr "Hora de fin"
+
+#: apps/catalog/models.py:441
+msgid "Workout location"
+msgstr "Ubicación"
+
+#: apps/catalog/models.py:442
+msgid "Workout active"
+msgstr ""
+
+#: apps/catalog/models.py:446
+msgid "created_by workout"
+msgstr "Creado por"
+
+#: apps/catalog/models.py:455
+msgid "updated_by workout"
+msgstr "Modificado por"
+
+#: apps/catalog/models.py:463 apps/teams/models.py:35
+msgid "institution created"
+msgstr ""
+
+#: apps/catalog/models.py:492 apps/coach/models.py:67
+msgid "Type name"
+msgstr ""
+
+#: apps/catalog/models.py:493
+msgid "Type active"
+msgstr ""
+
+#: apps/catalog/models.py:512
+msgid "Block name"
+msgstr "Nombre del bloque"
+
+#: apps/catalog/models.py:515
+msgid "Coding block"
+msgstr ""
+
+#: apps/catalog/models.py:521
+msgid "sub_coding category block"
+msgstr ""
+
+#: apps/catalog/models.py:527
+msgid "Type block"
+msgstr "Tipo del bloque"
+
+#: apps/catalog/models.py:533
+msgid "Block workout"
+msgstr ""
+
+#: apps/catalog/models.py:542
+msgid "Limit of exercises in a block"
+msgstr "Limite de ejercicios en un bloque"
+
+#: apps/catalog/models.py:543
+msgid "Block active"
+msgstr ""
+
+#: apps/catalog/models.py:547
+msgid "created_by block"
+msgstr "Creado por"
+
+#: apps/catalog/models.py:555
+msgid "updated_by block"
+msgstr "Modificado por"
+
+#: apps/catalog/models.py:581
+msgid "Exercise"
+msgstr "Ejercicio"
+
+#: apps/catalog/models.py:585
+msgid "Superset Exersice"
+msgstr ""
+
+#: apps/catalog/models.py:590
+msgid "Code block"
+msgstr ""
+
+#: apps/catalog/models.py:593
+msgid "Block exercise"
+msgstr ""
+
+#: apps/catalog/models.py:599
+msgid "Exercise block active"
+msgstr ""
+
+#: apps/catalog/models.py:603
+msgid "user created exercise block"
+msgstr "Creado por"
+
+#: apps/catalog/models.py:611
+msgid "user update exercise block"
+msgstr "Modificado por"
+
+#: apps/catalog/models.py:618
+msgid "Institution exercise block"
+msgstr ""
+
+#: apps/catalog/models.py:637 apps/catalog/models.py:714
+msgid "Title"
+msgstr ""
+
+#: apps/catalog/models.py:638 apps/catalog/models.py:639
+#: apps/catalog/models.py:731
+msgid "icon category"
+msgstr ""
+
+#: apps/catalog/models.py:640
+msgid "Order"
+msgstr "Orden"
+
+#: apps/catalog/models.py:652
+msgid "Warm Up"
+msgstr ""
+
+#: apps/catalog/models.py:653
+msgid "Failure"
+msgstr ""
+
+#: apps/catalog/models.py:654
+msgid "Drops set"
+msgstr ""
+
+#: apps/catalog/models.py:655 apps/security/models.py:45
+msgid "Default"
+msgstr ""
+
+#: apps/catalog/models.py:661 apps/catalog/models.py:717
+msgid "type"
+msgstr ""
+
+#: apps/catalog/models.py:703
+msgid "Numeric"
+msgstr ""
+
+#: apps/catalog/models.py:704
+msgid "Numeric Catalogs"
+msgstr ""
+
+#: apps/catalog/models.py:705
+msgid "Percentage Catalogs"
+msgstr ""
+
+#: apps/catalog/models.py:706
+msgid "Time"
+msgstr ""
+
+#: apps/catalog/models.py:707
+msgid "Choice"
+msgstr ""
+
+#: apps/catalog/models.py:708
+msgid "Percentaje"
+msgstr ""
+
+#: apps/catalog/models.py:709
+msgid "Character of effort"
+msgstr ""
+
+#: apps/catalog/models.py:710
+msgid "Decimal"
+msgstr ""
+
+#: apps/catalog/models.py:713
+msgid "Measure"
+msgstr ""
+
+#: apps/catalog/models.py:720
+msgid "ordering"
+msgstr ""
+
+#: apps/catalog/models.py:730 apps/catalog/models.py:742
+msgid "name category"
+msgstr ""
+
+#: apps/catalog/models.py:743
+msgid "item subcategory of category"
+msgstr ""
+
+#: apps/catalog/serializers.py:583
+msgid "The assigned schedule is already occupied."
+msgstr ""
+
+#: apps/catalog/views.py:168
+msgid "You cannot modify a preloaded exercise on the site."
+msgstr "No puede modificar un ejercicio precargado en el sitio."
+
+#: apps/catalog/views.py:195
+msgid "You cannot delete a preloaded exercise on the site."
+msgstr "No puede eliminar un ejercicio precargado en el sitio."
+
+#: apps/catalog/views.py:451
+msgid "New start date on phase is required"
+msgstr ""
+
+#: apps/catalog/views.py:616 apps/catalog/views.py:630
+msgid "week is used in this phase"
+msgstr ""
+
+#: apps/catalog/views.py:618 apps/catalog/views.py:632
+msgid "name week in this phase is used"
+msgstr ""
+
+#: apps/catalog/views.py:1069
+msgid "do you have a limit of items for block"
+msgstr ""
+
+#: apps/coach/models.py:13
+msgid "Nivel name"
+msgstr ""
+
+#: apps/coach/models.py:15
+msgid "First number"
+msgstr ""
+
+#: apps/coach/models.py:17
+msgid "Quantity next level"
+msgstr ""
+
+#: apps/coach/models.py:19
+msgid "Description"
+msgstr ""
+
+#: apps/coach/models.py:34
+msgid "Related Users"
+msgstr ""
+
+#: apps/coach/models.py:39 apps/coach/models.py:206
+msgid "Related Nivel"
+msgstr ""
+
+#: apps/coach/models.py:48
+msgid "updated_by nivel"
+msgstr ""
+
+#: apps/coach/models.py:53
+msgid "quantity trainings"
+msgstr ""
+
+#: apps/coach/models.py:69
+msgid "BlockType nivel"
+msgstr ""
+
+#: apps/coach/models.py:88
+msgid "block"
+msgstr ""
+
+#: apps/coach/models.py:90
+msgid "nivel"
+msgstr ""
+
+#: apps/coach/models.py:109
+msgid "Block Nivel setsreps"
+msgstr ""
+
+#: apps/coach/models.py:118
+msgid "reps light equipment"
+msgstr ""
+
+#: apps/coach/models.py:122
+msgid "reps heavy equipment"
+msgstr ""
+
+#: apps/coach/models.py:125
+msgid "reps lower body"
+msgstr ""
+
+#: apps/coach/models.py:128
+msgid "reps upper body"
+msgstr ""
+
+#: apps/coach/models.py:131 apps/help_coach/models.py:27
+msgid "intensity"
+msgstr ""
+
+#: apps/coach/models.py:133
+msgid "seconds_exercise"
+msgstr ""
+
+#: apps/coach/models.py:136
+msgid "rest exercise"
+msgstr ""
+
+#: apps/coach/models.py:138
+msgid "RIR"
+msgstr ""
+
+#: apps/coach/models.py:140
+msgid "reps vertical jump"
+msgstr ""
+
+#: apps/coach/models.py:142
+msgid "reps explosive"
+msgstr ""
+
+#: apps/coach/models.py:144
+msgid "increment load week"
+msgstr ""
+
+#: apps/coach/models.py:149
+msgid "created_by setsreps"
+msgstr ""
+
+#: apps/coach/models.py:159
+msgid "updated_by setsreps"
+msgstr ""
+
+#: apps/coach/models.py:167
+msgid "Related Subparameter"
+msgstr ""
+
+#: apps/coach/models.py:183
+msgid "Name Regiom"
+msgstr "Nombre de región"
+
+#: apps/coach/models.py:186
+msgid "Name Regions"
+msgstr "Nombre de regiones"
+
+#: apps/coach/models.py:213
+msgid "Realized WorkOut"
+msgstr ""
+
+#: apps/coach/models.py:246 apps/coach/models.py:291
+msgid "Related category_selection"
+msgstr ""
+
+#: apps/coach/models.py:254
+msgid "Related block_nivel"
+msgstr ""
+
+#: apps/coach/models.py:262
+msgid "created_by category_selection"
+msgstr ""
+
+#: apps/coach/models.py:271
+msgid "updated_by category_selection"
+msgstr ""
+
+#: apps/coach/models.py:297
+msgid "Related nivel_user"
+msgstr ""
+
+#: apps/coach/models.py:310
+#, fuzzy
+#| msgid "code country"
+msgid "Active category"
+msgstr "Activar cuenta"
+
+#: apps/coach/models.py:329
+msgid "Equipment"
+msgstr ""
+
+#: apps/coach/models.py:336
+msgid "User Related"
+msgstr ""
+
+#: apps/coach/models.py:346
+msgid "created_by equip_user"
+msgstr "Creado por"
+
+#: apps/coach/models.py:355
+msgid "updated_by equip_user"
+msgstr "Modificado por"
+
+#: apps/coach/views.py:200
+msgid "this user has a previous register saved"
+msgstr ""
+
+#: apps/dashboard/models.py:23
+msgid "name widget"
+msgstr ""
+
+#: apps/dashboard/models.py:24
+msgid "image widget"
+msgstr ""
+
+#: apps/dashboard/models.py:40 apps/dashboard/models.py:78
+msgid "name event"
+msgstr ""
+
+#: apps/dashboard/models.py:41
+msgid "Hour start"
+msgstr ""
+
+#: apps/dashboard/models.py:42
+msgid "Hour end"
+msgstr ""
+
+#: apps/dashboard/models.py:43 apps/dashboard/models.py:79
+msgid "Date start event"
+msgstr ""
+
+#: apps/dashboard/models.py:44 apps/dashboard/models.py:80
+msgid "Date end event"
+msgstr ""
+
+#: apps/dashboard/models.py:47 apps/dashboard/models.py:83
+msgid "Teams event"
+msgstr ""
+
+#: apps/dashboard/models.py:51 apps/dashboard/models.py:87
+msgid "Athletes events"
+msgstr ""
+
+#: apps/dashboard/models.py:57
+msgid "Created event user"
+msgstr ""
+
+#: apps/dashboard/models.py:109
+msgid "User widget"
+msgstr ""
+
+#: apps/dashboard/models.py:110
+msgid "Widget user"
+msgstr ""
+
+#: apps/dashboard/models.py:111
+msgid "Axis x"
+msgstr ""
+
+#: apps/dashboard/models.py:112
+msgid "Axis y"
+msgstr ""
+
+#: apps/help_coach/models.py:8
+msgid "Variation Horizontal"
+msgstr ""
+
+#: apps/help_coach/models.py:10
+msgid "Change Exercises"
+msgstr ""
+
+#: apps/help_coach/models.py:11
+msgid "Change Reps"
+msgstr ""
+
+#: apps/help_coach/models.py:26
+msgid "Variation Vertical"
+msgstr ""
+
+#: apps/help_coach/models.py:28
+msgid "volumen"
+msgstr ""
+
+#: apps/help_coach/models.py:46
+msgid "Related Varition"
+msgstr ""
+
+#: apps/help_coach/models.py:52 apps/help_coach/models.py:82
+#: apps/help_coach/models.py:116
+msgid "Phase"
+msgstr ""
+
+#: apps/help_coach/models.py:71
+msgid " Varition"
+msgstr ""
+
+#: apps/help_coach/models.py:77
+msgid "Week"
+msgstr ""
+
+#: apps/help_coach/models.py:104
+msgid "Related category_selection_nivel_user"
+msgstr ""
+
+#: apps/help_coach/models.py:110
+#, fuzzy
+#| msgid "Region user"
+msgid "regions"
+msgstr "Region de usuario"
+
+#: apps/help_coach/models.py:139
+msgid "Program"
+msgstr ""
+
+#: apps/payments/models.py:25 apps/security/models.py:80
+msgid "institution"
+msgstr "Institución"
+
+#: apps/payments/models.py:31
+msgid "type subscription"
+msgstr "Tipo de subscripción"
+
+#: apps/payments/models.py:34
+msgid "ends suscription"
+msgstr ""
+
+#: apps/payments/models.py:35
+msgid "active subscription"
+msgstr "subscription activa?"
+
+#: apps/payments/models.py:36
+msgid "number of athletes"
+msgstr ""
+
+#: apps/payments/models.py:37
+msgid "number of coaches"
+msgstr ""
+
+#: apps/payments/models.py:38
+msgid "number of teams"
+msgstr ""
+
+#: apps/payments/models.py:39
+msgid "price payed of subscription in dollars"
+msgstr ""
+
+#: apps/payments/models.py:40
+msgid "tax payed of subscription in dollars"
+msgstr ""
+
+#: apps/payments/models.py:41
+msgid "fee of stripe of subscription in dollars"
+msgstr ""
+
+#: apps/payments/models.py:42
+msgid "total payed of subscription in dollars"
+msgstr ""
+
+#: apps/payments/models.py:43
+msgid "renewable subscription"
+msgstr ""
+
+#: apps/payments/views.py:24
+msgid "This user does not have an assigned region"
+msgstr ""
+
+#: apps/regions/models.py:9
+msgid "Title region"
+msgstr "Titulo de region"
+
+#: apps/regions/models.py:12
+msgid "currency user"
+msgstr ""
+
+#: apps/security/admin.py:14
+msgid "Personal info"
+msgstr "Informacion personal"
+
+#: apps/security/admin.py:27
+msgid "Permissions"
+msgstr "Permisos"
+
+#: apps/security/forms.py:9
+msgid "Password"
+msgstr ""
+
+#: apps/security/forms.py:20
+msgid "Confirm password"
+msgstr ""
+
+#: apps/security/forms.py:37 apps/security/serializers.py:126
+#: apps/security/serializers.py:215
+msgid "Passwords do not match."
+msgstr "Contraseñas no coinciden"
+
+#: apps/security/models.py:32
+msgid "Super Admin"
+msgstr "Super Administrador"
+
+#: apps/security/models.py:33
+msgid "Institution Manager"
+msgstr "Institucion manager"
+
+#: apps/security/models.py:34
+msgid "Strength Coach"
+msgstr "Strength Coach"
+
+#: apps/security/models.py:35
+msgid "Athlete"
+msgstr "Athlete"
+
+#: apps/security/models.py:38 apps/security/models.py:48
+msgid "English"
+msgstr ""
+
+#: apps/security/models.py:39
+msgid "International"
+msgstr ""
+
+#: apps/security/models.py:42
+msgid "Facebook"
+msgstr ""
+
+#: apps/security/models.py:43
+msgid "Google"
+msgstr ""
+
+#: apps/security/models.py:44
+msgid "Apple"
+msgstr ""
+
+#: apps/security/models.py:49
+msgid "Spanish"
+msgstr ""
+
+#: apps/security/models.py:53 apps/security/models.py:118
+msgid "Rol"
+msgstr "Rol"
+
+#: apps/security/models.py:58
+msgid "Social Login Type"
+msgstr ""
+
+#: apps/security/models.py:66
+msgid "Training automatic enabled"
+msgstr ""
+
+#: apps/security/models.py:70
+msgid "System Metric"
+msgstr ""
+
+#: apps/security/models.py:75
+msgid "Languaje"
+msgstr ""
+
+#: apps/security/models.py:89
+msgid "Region user"
+msgstr "Region de usuario"
+
+#: apps/security/models.py:96
+msgid "code country"
+msgstr "Codigo de Pais"
+
+#: apps/security/models.py:107
+msgid "last user edit this user"
+msgstr ""
+
+#: apps/security/models.py:111
+msgid "weigth user (kg)"
+msgstr ""
+
+#: apps/security/models.py:112
+msgid "heigth user (m)"
+msgstr ""
+
+#: apps/security/models.py:113
+msgid "maximum heart rate (bpm)"
+msgstr ""
+
+#: apps/security/models.py:114
+msgid "Maximal Sprinting Speed (km/h)"
+msgstr ""
+
+#: apps/security/models.py:115
+msgid "Maximal Aerobic Speed (km/h)"
+msgstr ""
+
+#: apps/security/models.py:122
+msgid "Date Birthday"
+msgstr "Fecha de cumpleaños"
+
+#: apps/security/models.py:130
+msgid "photo profile"
+msgstr "Foto de perfil"
+
+#: apps/security/models.py:142 apps/security/models.py:146
+msgid "email verified?"
+msgstr "correo verificado?"
+
+#: apps/security/serializers.py:207
+#, python-format
+msgid "The email: %(value)s is already registered."
+msgstr "El correo: %(value)s esta registrado"
+
+#: apps/security/utils.py:17 apps/security/views.py:139
+#: apps/security/views.py:149 apps/security/views.py:166
+msgid "Reset password"
+msgstr ""
+
+#: apps/security/utils.py:18
+msgid ""
+"Welcome to Solo Performance, click on the following link to recover password "
+"for you access account"
+msgstr ""
+"Bienvenido a Solo Performance, click al siguiente enlace para activar tu "
+"cuenta"
+
+#: apps/security/utils.py:19 apps/security/utils.py:41
+msgid "If it does not redirect the button, copy the following link:"
+msgstr "Si no redirecciona el botón, copie el siguiente link:"
+
+#: apps/security/utils.py:20 apps/security/utils.py:42
+msgid "Go to link"
+msgstr "Ir al enlace"
+
+#: apps/security/utils.py:21 apps/security/utils.py:43
+msgid "team"
+msgstr "Equipo"
+
+#: apps/security/utils.py:39
+msgid "Active account"
+msgstr "Activar cuenta"
+
+#: apps/security/utils.py:40
+msgid ""
+"Welcome to Solo Performance, click on the following link to activate your "
+"account"
+msgstr ""
+"Bienvenido a Solo Performance, click al siguiente enlace para activar tu "
+"cuenta"
+
+#: apps/security/utils.py:47 apps/security/utils.py:48
+msgid "Código de activación"
+msgstr ""
+
+#: apps/security/utils.py:72
+msgid "you don´t have suscriptions actives"
+msgstr ""
+
+#: apps/security/utils.py:78
+msgid "this institution has limit of coaches created"
+msgstr ""
+
+#: apps/security/utils.py:85
+msgid "this institution has limit of athletes created"
+msgstr ""
+
+#: apps/security/utils.py:97
+msgid "this email already register with another type authentication"
+msgstr ""
+
+#: apps/security/views.py:81
+msgid "you don´t have subscriptions"
+msgstr ""
+
+#: apps/security/views.py:96 apps/security/views.py:124
+msgid "this user not change password because social login has"
+msgstr ""
+
+#: apps/security/views.py:112
+msgid "email field is required."
+msgstr ""
+
+#: apps/security/views.py:128
+msgid "email not found or user is not active"
+msgstr ""
+
+#: apps/security/views.py:136
+msgid "The link to change password is not valid."
+msgstr "El link para cambiar la contraseña no es valido"
+
+#: apps/security/views.py:140 apps/security/views.py:150
+#: apps/security/views.py:167
+msgid "Welcome to Solo Performance, please set password and confirm password"
+msgstr ""
+
+#: apps/security/views.py:141 apps/security/views.py:151
+#: apps/security/views.py:168 apps/security/views.py:316
+#: apps/security/views.py:324
+msgid "Team"
+msgstr "Equipo"
+
+#: apps/security/views.py:146
+#, fuzzy
+#| msgid "This link is not valid"
+msgid "This user is not active"
+msgstr "El link no es valido"
+
+#: apps/security/views.py:241
+msgid "this type of user is invalid"
+msgstr ""
+
+#: apps/security/views.py:267
+msgid "you dont have permissions for create this user"
+msgstr "No tienes permisos para crear este tipo de usuario"
+
+#: apps/security/views.py:313
+msgid "Account active!!"
+msgstr "Cuenta activada!!"
+
+#: apps/security/views.py:314
+#, fuzzy
+#| msgid ""
+#| "Welcome to Solo Performance, click on the following link to activate your "
+#| "account"
+msgid "Welcome to Solo Performance, your account has been activated"
+msgstr ""
+"Bienvenido a Solo Performance, tu cuenta a sido activadaBienvenido a Solo "
+"Performance, click al siguiente enlace para activar tu cuenta"
+
+#: apps/security/views.py:315
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to panel"
+msgstr "Ir al enlace"
+
+#: apps/security/views.py:322
+msgid "This link is not valid"
+msgstr "El link no es valido"
+
+#: apps/security/views.py:323
+msgid "Oops something went wrong"
+msgstr "Oops algo salió mal"
+
+#: apps/survey/models.py:11
+msgid "pre-training"
+msgstr ""
+
+#: apps/survey/models.py:12
+msgid "post-training"
+msgstr ""
+
+#: apps/survey/models.py:25
+msgid "text"
+msgstr ""
+
+#: apps/survey/models.py:26
+msgid "integer"
+msgstr ""
+
+#: apps/survey/models.py:27
+msgid "time"
+msgstr ""
+
+#: apps/survey/views.py:30
+#, fuzzy
+#| msgid "This link is not valid"
+msgid "workout is not valid"
+msgstr "El link no es valido"
+
+#: apps/teams/models.py:23 apps/teams/models.py:74 apps/teams/models.py:75
+msgid "Name team"
+msgstr "Nombre del equipo"
+
+#: apps/teams/models.py:24
+#, fuzzy
+#| msgid "Name team"
+msgid "image team"
+msgstr "Nombre del equipo"
+
+#: apps/teams/models.py:25 apps/teams/models.py:84
+#, fuzzy
+#| msgid "Institution Manager"
+msgid "institution active"
+msgstr "Institucion manager"
+
+#: apps/teams/models.py:28
+msgid "Last updated"
+msgstr ""
+
+#: apps/teams/models.py:41
+#, fuzzy
+#| msgid "Institution Manager"
+msgid "Institution managers of team"
+msgstr "Institucion manager"
+
+#: apps/teams/models.py:47
+#, fuzzy
+#| msgid "Athlete"
+msgid "Athletes of team"
+msgstr "Athlete"
+
+#: apps/teams/models.py:53
+msgid "Coaches of team"
+msgstr ""
+
+#: apps/teams/models.py:79
+msgid "total revenue"
+msgstr ""
+
+#: apps/teams/views.py:50
+msgid "this institution not has active subscription"
+msgstr ""
+
+#: apps/teams/views.py:53
+msgid "this institution has limit of teams created"
+msgstr ""
+
+#: apps/teams/views.py:91 apps/teams/views.py:104 apps/teams/views.py:111
+#, fuzzy
+#| msgid "you dont have permissions for create this user"
+msgid "you don´t have permissions"
+msgstr "No tienes permisos para crear este tipo de usuario"
+
+#: performance/templates/default_urlconf.html:6
+msgid ""
+"Solo Performance powered by Django: the Web framework for perfectionists "
+"with deadlines."
+msgstr ""
+
+#: performance/templates/default_urlconf.html:383
+msgid "Django Documentation"
+msgstr "Documentacion de django"
+
+#: performance/templates/default_urlconf.html:384
+msgid "Topics, references, &amp; how-to's"
+msgstr ""
+
+#: performance/templates/default_urlconf.html:395
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: performance/templates/default_urlconf.html:396
+msgid "Get started with Django"
+msgstr ""
+
+#: performance/templates/default_urlconf.html:407
+msgid "Django Community"
+msgstr ""
+
+#: performance/templates/default_urlconf.html:408
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#~ msgid "Team asociated"
+#~ msgstr "Equipo asociado"
+
+#~ msgid "invalid credentials."
+#~ msgstr "Credenciales invalidas"
+
+#~ msgid "The password must contain at least 1 uppercase letter, A-Z."
+#~ msgstr "La contraseña debe contener al menos 1 letra mayúscula, A-Z."
+
+#~ msgid "Your password must contain at least 1 uppercase letter, A-Z."
+#~ msgstr "Su contraseña debe contener al menos 1 letra mayúscula, A-Z."
+
+#~ msgid ""
+#~ "The password must contain at least 1 symbol: ()[]{}|\\`~!@#$%^&*_-+=;:'\","
+#~ "<>./?"
+#~ msgstr ""
+#~ "La contraseña debe contener al menos un carácter valido: ()[]{}|\\`~!@#$"
+#~ "%^&*_-+=;:'\",<>./?"
+
+#~ msgid ""
+#~ "Your password must contain at least 1 symbol: ()[]{}|\\`~!@#$%^&*_-"
+#~ "+=;:'\",<>./?"
+#~ msgstr ""
+#~ "La contraseña debe contener al menos un carácter valido: ()[]{}|\\`~!@#$"
+#~ "%^&*_-+=;:'\",<>./?"
+
+#~ msgid "The password must contain at least 1 digit, 0-9."
+#~ msgstr "La contraseña debe contener al menos 1 dígito, 0-9."
+
+#~ msgid "Your password must contain at least 1 digit, 0-9."
+#~ msgstr "La contraseña debe contener al menos 1 dígito, 0-9."

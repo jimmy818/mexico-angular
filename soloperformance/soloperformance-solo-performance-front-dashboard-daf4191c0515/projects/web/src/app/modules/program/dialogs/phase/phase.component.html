@@ -1,0 +1,52 @@
+<sp-dialog>
+    <sp-dialog-title
+        title="Phases information"
+        subtitle="Select the phase’s duration">
+    </sp-dialog-title>
+    <sp-dialog-content>
+
+      <!-- Phase name -->
+      <mat-form-field appearance="standard">
+        <mat-label>Phase name</mat-label>
+        <input matInput placeholder="Name" required>
+        <!-- <mat-error *ngIf="name.hasError('required')">required</mat-error> -->
+      </mat-form-field>
+
+      <!-- week list-->
+      <div cdkDropList class="list" (cdkDropListDropped)="drop($event)" >
+        <div class="d-flex justify-content-between week" *ngFor="let item of weeks; let i = index;" cdkDrag>
+          <p class="mb-0 d-flex align-items-center pl-3">Week {{i + 1}}</p>
+          <div class="my-2">
+            <button mat-button color="primary" type="button" [class.active]="item.mon" (click)="item.mon = !item.mon">M</button>
+            <button mat-button color="primary" type="button" [class.active]="item.tue" (click)="item.tue = !item.tue">T</button>
+            <button mat-button color="primary" type="button" [class.active]="item.wed" (click)="item.wed = !item.wed">W</button>
+            <button mat-button color="primary" type="button" [class.active]="item.thu" (click)="item.thu = !item.thu">T</button>
+            <button mat-button color="primary" type="button" [class.active]="item.fri" (click)="item.fri = !item.fri">F</button>
+            <button mat-button color="primary" type="button" [class.active]="item.sat" (click)="item.sat = !item.sat">S</button>
+            <button mat-button color="primary" type="button" [class.active]="item.sun" (click)="item.sun = !item.sun">S</button>
+            <button mat-icon-button type="button" (click)="weeks.splice(i, 1)"><img src="assets/icons/trash.svg" alt="delete"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- week row add-->
+      <div class="d-flex justify-content-between week">
+        <p class="mb-0 d-flex align-items-center pl-3 text-secondary">Week {{weeks.length + 1}}</p>
+        <div class="my-2">
+          <button mat-button color="primary" type="button" (click)="addNew(1)">M</button>
+          <button mat-button color="primary" type="button" (click)="addNew(2)">T</button>
+          <button mat-button color="primary" type="button" (click)="addNew(3)">W</button>
+          <button mat-button color="primary" type="button" (click)="addNew(4)">T</button>
+          <button mat-button color="primary" type="button" (click)="addNew(5)">F</button>
+          <button mat-button color="primary" type="button" (click)="addNew(6)">S</button>
+          <button mat-button color="primary" type="button" (click)="addNew(7)">S</button>
+          <button style="opacity:0"></button>
+        </div>
+      </div>
+
+    </sp-dialog-content>
+    <sp-dialog-actions>
+      <button mat-stroked-button color="primary" [mat-dialog-close]="null" type="button">Cancel</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Save Phase</button>
+    </sp-dialog-actions>
+</sp-dialog>

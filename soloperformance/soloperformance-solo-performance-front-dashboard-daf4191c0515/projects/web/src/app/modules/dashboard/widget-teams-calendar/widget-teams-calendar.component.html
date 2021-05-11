@@ -1,0 +1,25 @@
+<sp-card [expand]="true">
+    <div class="sp-widget__container">
+        <div class="sp-widget__header my-n1">
+            <sp-header [fluid]="true">
+                <sp-header-group
+                    [expanded]="true"
+                    [isTitle]="true">
+                    {{widget.name}}
+                </sp-header-group>
+                <sp-header-group>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon svgIcon="more_vertical"></mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                        <button mat-menu-item (click)="deleteWidget()">Erase widget</button>
+                        <button mat-menu-item (click)="duplicateWidget()">Duplicate widget</button>
+                    </mat-menu>
+                </sp-header-group>
+            </sp-header>
+        </div>
+        <div class="sp-widget__body">
+            <span>{{widget.name}}</span>
+        </div>
+    </div>
+</sp-card>

@@ -1,0 +1,35 @@
+<!-- Título -->
+<div cdkDrag
+    cdkDragRootElement=".cdk-overlay-pane">
+    <ng-container *ngIf="title">
+        <div cdkDragHandle
+            class="sp-dialog__drag d-flex mb-3 justify-content-between">
+            <div class="d-flex flex-column">
+                <span class="sp-dialog__title">{{title.title}}</span>
+                <span class="sp-dialog__subtitle">{{title.subtitle}}</span>
+            </div>
+            <button *ngIf="isCloseButtonVisible" class="sp-dialog__close-button"
+                mat-icon-button
+                [mat-dialog-close]="null">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                </svg>
+            </button>
+        </div>
+        <ng-container *ngTemplateOutlet="title.titleContent"></ng-container>
+    </ng-container>
+    <!-- Contenido -->
+    <mat-dialog-content [ngClass]="dialogContentClass?dialogContentClass:null">
+        <ng-container *ngIf="content">
+            <ng-container *ngTemplateOutlet="content.contentContent"></ng-container>
+        </ng-container>
+    </mat-dialog-content>
+    <!-- Acciones -->
+    <mat-dialog-actions align="end">
+        <ng-container *ngIf="actions">
+            <ng-container *ngTemplateOutlet="actions.actionsContent"></ng-container>
+        </ng-container>
+    </mat-dialog-actions>
+</div>

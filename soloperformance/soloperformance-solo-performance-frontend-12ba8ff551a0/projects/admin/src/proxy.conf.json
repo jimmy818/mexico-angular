@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+      "target": "https://api.soloperformance.app",
+      "secure": false,
+      "logLevel":"debug"
+    }
+  }

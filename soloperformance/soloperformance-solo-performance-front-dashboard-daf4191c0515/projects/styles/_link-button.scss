@@ -1,0 +1,17 @@
+.sp-link-button {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+        color: $primary;
+        text-decoration: none;
+    }
+
+    &--selected {
+        color: $accent !important;
+    }
+
+    &--bold {
+        font-weight: 700 !important;
+    }
+}

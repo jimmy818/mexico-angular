@@ -1,0 +1,59 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "sp-library": [
+        "dist/sp-library/sp-library",
+        "dist/sp-library"
+      ],
+      "sp-core": [
+        "dist/sp-core/sp-core",
+        "dist/sp-core"
+      ],
+      "@admin/env/*": [
+        "projects/admin/src/environments/*"
+      ],
+      "@admin/core/*": [
+        "projects/admin/src/app/core/*"
+      ],
+      "@admin/shared/*": [
+        "projects/admin/src/app/shared/*"
+      ],
+      "@admin/modules/*": [
+        "projects/admin/src/app/modules/*"
+      ],
+      "@web/env/*": [
+        "projects/web/src/environments/*"
+      ],
+      "@web/core/*": [
+        "projects/web/src/app/core/*"
+      ],
+      "@web/shared/*": [
+        "projects/web/src/app/shared/*"
+      ],
+      "@web/modules/*": [
+        "projects/web/src/app/modules/*"
+      ],
+      "sp-dialog": [
+        "dist/sp-dialog/sp-dialog",
+        "dist/sp-dialog",
+        "dist/sp-dialog/sp-dialog",
+        "dist/sp-dialog"
+      ]
+    }
+  }
+}

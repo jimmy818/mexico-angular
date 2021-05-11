@@ -1,0 +1,62 @@
+<div cdkDropList
+    (cdkDropListDropped)="dropWeek($event)">
+    <!-- Week list-->
+    <div *ngFor="let week of weeks; let i = index;"
+        class="sp-weeks-days__week"
+        cdkDrag>
+        <span class="sp-weeks-days__week-text">
+            Week {{i + 1}}
+        </span>
+        <div class="sp-weeks-days__days">
+            <ng-container *ngFor="let day of week.days">
+                <button type="button"
+                    class="sp-weeks-days__day"
+                    mat-button
+                    [class.mat-flat-button]="day.selected"
+                    [color]="day.selected?'primary':null"
+                    (click)="dayClick(day)">
+                    {{day.day | day}}
+                </button>
+            </ng-container>
+            <!-- Remove week -->
+            <button type="button"
+                mat-icon-button
+                (click)="removeWeek(i)">
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0)">
+                        <path
+                            d="M2 2.94739L2.64455 12.921C2.65701 13.1138 2.80216 13.2632 2.97704 13.2632H9.02293C9.19787 13.2632 9.343 13.1138 9.35547 12.921L10 2.94739"
+                            stroke="#6E788F" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M0.666504 2.94739H11.3332" stroke="#6E788F" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <path d="M4.6665 5.89484V10.3159" stroke="#6E788F" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M7.33301 5.89484V10.3159" stroke="#6E788F" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M8 2.9474C8 1.72657 7.1046 0.736877 6 0.736877C4.8954 0.736877 4 1.72657 4 2.9474"
+                            stroke="#6E788F" stroke-width="1.5" stroke-linecap="round" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0">
+                            <rect width="12" height="14" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- week row add-->
+<div class="sp-weeks-days__week" #newWeek>
+    <span class="sp-weeks-days__week-text sp-weeks-days__week-text--new">
+        Week {{weeks.length + 1}}
+    </span>
+    <div class="sp-weeks-days__days sp-weeks-days__days--new">
+        <button *ngFor="let day of week.days"
+            type="button"
+            class="sp-weeks-days__day"
+            mat-button
+            (click)="addWeek(day)">
+            {{day | day}}
+        </button>
+    </div>
+</div>

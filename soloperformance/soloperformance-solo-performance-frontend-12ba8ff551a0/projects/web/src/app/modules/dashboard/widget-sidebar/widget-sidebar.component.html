@@ -1,0 +1,52 @@
+<div #sidebar class="sp-widget-sidebar">
+    <div #sidebarContainer class="sp-widget-sidebar__container">
+        <!-- Floating button -->
+        <div #floatingButton class="sp-widget-sidebar__floating-btn"
+            (click)="showHideWidgets()">
+            <span>Widgets</span>
+            <mat-icon svgIcon="widget" class="sp-widget-sidebar__floating-btn-icon"></mat-icon>
+        </div>
+        <!-- Spinner -->
+        <div class="sp-widget-sidebar__border"
+            [class.sp-widget-sidebar__border--loading]="isLoading">
+            <sp-progress-spinner [isRunning]="isLoading"></sp-progress-spinner>
+        </div>
+        <!-- Header -->
+        <div class="sp-widget-sidebar__header">
+            <div class="sp-widget-sidebar__title">
+                <span class="sp-widget-sidebar__title-text">Widgets</span>
+                <button type="button"
+                    mat-icon-button
+                    class="sp-widget-sidebar__title-close"
+                    (click)="showHideWidgets()">
+                    <mat-icon svgIcon="close"></mat-icon>
+                </button>
+            </div>
+            <sp-input-search placeholder="Search a widget"
+                (enter)="onSearchEnter($event)"
+                (valueChange)="onSearchValueChange($event)">
+            </sp-input-search>
+        </div>
+        <!-- Contenido -->
+        <div class="sp-widget-sidebar__content">
+            <div class="sp-widget-sidebar__widgets">
+                <ng-container *ngIf="widgets.length || isLoading;else noWidgets">
+                    <ng-container *ngFor="let widget of widgets">
+                        <web-widget-preview
+                            [name]="widget.name"
+                            [image]="widget.image"
+                            (click)="onWidgetPreviewClick(widget)">
+                        </web-widget-preview>
+                    </ng-container>
+                </ng-container>
+                <ng-template #noWidgets>
+                    <div class="sp-widget-sidebar__no-data">
+                        <span>No widgets found</span>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="sp-widget-sidebar__footer"></div>
+    </div>
+</div>

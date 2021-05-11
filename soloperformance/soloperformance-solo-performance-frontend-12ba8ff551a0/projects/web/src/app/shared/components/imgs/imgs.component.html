@@ -1,0 +1,8 @@
+<div class="d-flex">
+  <div class="img" [hidden]="i+1 > max" *ngFor="let img of imgs; let i = index;">
+    <img *ngIf="i+1 <= max" [src]="img[key] | imgs" [alt]="img.name" class="profile" >
+  </div>
+  <div class="img plus" [style.color]="color" *ngIf="imgs.length > max">
+    +{{imgs.length - max}}
+  </div>
+</div>

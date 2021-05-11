@@ -1,0 +1,18 @@
+<sp-dialog>
+    <sp-dialog-title
+        [title]="'Events of ' + (data.date | date:(data.isMonth?'MMMM':'dd/MM/yyyy'))">
+    </sp-dialog-title>
+    <sp-dialog-content>
+        <div class="web-events__container">
+            <web-calendar-item *ngFor="let event of data.events" class="m-1">
+                <div class="web-events__event sp-font sp-font--primary sp-font--bold">
+                    <span class="web-events__event-name">{{event.name}}</span>
+                    <span class="web-events__event-time">{{event.dateStart | date:'HH:mm'}} - {{event.dateEnd | date:'HH:mm'}}</span>
+                </div>
+            </web-calendar-item>
+        </div>
+    </sp-dialog-content>
+    <sp-dialog-actions>
+        <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+    </sp-dialog-actions>
+</sp-dialog>

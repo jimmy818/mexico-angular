@@ -1,0 +1,40 @@
+.sp-dialog {
+    &__drag {
+        margin: -24px;
+        margin-bottom: 14px;
+        padding: 24px;
+        padding-bottom: 0;
+        cursor: move;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-family: "Caros Bold";
+        line-height: 22px;
+        font-weight: 700;
+
+        &--secondary {
+            font-size: 16px;
+        }
+    }
+
+    &__subtitle {
+        padding-top: 8px;
+        color: #a8abb9;
+    }
+
+    &__close-button {
+        opacity: 0.5;
+        margin-top: -12px;
+        margin-right: -12px;
+    }
+
+    & .mat-dialog-content {
+        margin: 0;
+        padding: 0 15px;
+    }
+}
+
+.mat-dialog-actions {
+    box-sizing: initial;
+}

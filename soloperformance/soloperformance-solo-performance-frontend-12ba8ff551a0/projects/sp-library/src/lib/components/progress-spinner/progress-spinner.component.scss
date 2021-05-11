@@ -1,0 +1,35 @@
+.progress-spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    background: rgba(60, 72, 88, 0.75);
+    display: none;
+    &--shown {
+        display: flex;
+        flex-direction: column;
+    }
+    &__spinner {
+        width: 60px;
+        height: 60px;
+        border: 5px solid rgba(0, 0, 0, 0.26);
+        border-top-color: #10181f;
+        border-radius: 50%;
+        animation: progress-spinner-animation 1s linear infinite;
+    }
+    &__text {
+        color: black;
+    }
+}
+
+@keyframes progress-spinner-animation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

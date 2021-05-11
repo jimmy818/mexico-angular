@@ -1,0 +1,9 @@
+<div class="progress-spinner"
+    [ngClass]="containerClasses"
+    [class.progress-spinner--shown]="isRunning">
+    <div class="progress-spinner__spinner"></div>
+    <div *ngIf="text"
+        class="progress-spinner__text">
+        <span>{{text}}</span>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="mdl-stepper-horizontal">
+  <div class="mdl-stepper-step" [class.active]="item.active" (click)="item.active = !item.active" *ngFor="let item of phase; let i = index;">
+    <div class="mdl-stepper-title"><small>Phase {{i + 1}}</small><br>{{item.name}}</div>
+    <div class="mdl-stepper-circle"></div>
+    <div class="mdl-stepper-subtitle weeks">{{item.weeks}} weeks</div>
+    <div class="mdl-stepper-subtitle border mx-auto mt-3">{{item.number}}</div>
+    <div class="mdl-stepper-bar-left"></div>
+    <div class="mdl-stepper-bar-right"></div>
+  </div>
+</div>

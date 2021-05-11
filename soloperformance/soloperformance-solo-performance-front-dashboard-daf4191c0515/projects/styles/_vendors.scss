@@ -1,0 +1,37 @@
+/*
+ * =====================================================
+ * = Bootstrap
+ * =====================================================
+*/
+
+svg {
+  vertical-align: initial;
+}
+
+/*
+ * =====================================================
+ * = Angular Material
+ * =====================================================
+*/
+
+$backdrop-color: rgba(60, 72, 88, 0.75);
+
+.mat-tab-label.mat-tab-label-active {
+  color: $accent;
+}
+
+.mat-ink-bar {
+  background-color: $accent;
+}
+
+.cdk-overlay-dark-backdrop {
+  background-color: $backdrop-color;
+}
+
+.cdk-overlay-pane {
+  max-height: 95vh;
+}
+
+.mat-list-base .mat-list-option {
+  font-size: $font-size;
+}

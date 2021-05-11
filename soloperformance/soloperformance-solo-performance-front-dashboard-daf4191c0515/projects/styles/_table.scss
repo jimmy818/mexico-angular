@@ -1,0 +1,74 @@
+.sp-table {
+    font-size: 12px;
+    &__action-button {
+        cursor: pointer;
+        svg {
+            width: 14px;
+            height: 14px;
+        }
+    }
+    .mat-header-cell {
+        border-bottom: none;
+    }
+    .mat-cell {
+        font-size: 12px;
+    }
+    &__th {
+        background: $background-color;
+        font-weight: 800;
+        font-size: 14px;
+        $border-radius: 6px;
+        &:first-of-type {
+            border-top-left-radius: $border-radius;
+            border-bottom-left-radius: $border-radius;
+        }
+        &:last-of-type {
+            border-top-right-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+        }
+    }
+    .mat-header-cell ~ &__th {
+        &--left {
+            text-align: left;
+        }
+        &--center {
+            text-align: center;
+        }
+        &--right {
+            text-align: right;
+        }
+    }
+    .mat-cell ~ &__td {
+        &--left {
+            text-align: left;
+        }
+        &--center {
+            text-align: center;
+        }
+        &--right {
+            text-align: right;
+        }
+    }
+    &__item {
+        display: flex;
+        &-text {
+            width: 100px;
+            text-align: right;
+        }
+        &-value {
+            flex-grow: 1;
+            text-align: right;
+        }
+    }
+    &__row{
+        &--selectable{
+            cursor: pointer;
+        }
+        &:not(.sp-table__row--selected):hover{
+            background: rgba(110, 120, 143, 0.2);;
+        }
+        &--selected{
+            background:lighten(#6993FF, 10);
+        }
+    }
+}

@@ -1,0 +1,78 @@
+<sp-header>
+    <!-- Logotipo -->
+    <sp-header-group>
+        <a [routerLink]="['/']">
+            <img [src]="logo" alt="Solo Performance" class="sp-logo">
+        </a>
+    </sp-header-group>
+    <sp-header-group>
+        <span class="web-header__option web-header__option--institution ml-4 font-weight-bold">
+            Nombre de institución/ Equipo
+        </span>
+    </sp-header-group>
+    <!-- Menú -->
+    <sp-header-group [expanded]="true">
+        <button mat-button class="web-header__option ml-4" routerLinkActive="sp-header__option--selected"
+            [routerLink]="['/dashboard']">
+            Dashboard
+        </button>
+        <button mat-button class="web-header__option" routerLinkActive="sp-header__option--selected"
+            [routerLink]="['/library']">
+            Library
+        </button>
+        <button mat-button class="web-header__option">
+            Analytics
+        </button>
+        <button mat-button class="web-header__option" routerLinkActive="sp-header__option--selected"
+            [routerLink]="['/profiling']">
+            Profiling
+        </button>
+        <button mat-button class="web-header__option">
+            Training
+        </button>
+    </sp-header-group>
+    <!-- Opciones -->
+    <sp-header-group>
+        <!-- Setttings -->
+        <mat-icon class="web-header__icon"
+            svgIcon="settings"
+            matTooltip="Settings"
+            [matMenuTriggerFor]="settingsMenu">
+            <mat-menu #settingsMenu="matMenu" xPosition="before">
+                <button mat-menu-item
+                    [routerLink]="['/management']">
+                    <span>Management</span>
+                </button>
+            </mat-menu>
+        </mat-icon>
+        <!-- Notifications -->
+        <mat-icon class="web-header__icon"
+            svgIcon="notifications"
+            matTooltip="Notifications">
+        </mat-icon>
+        <!-- Usuario en sesión -->
+        <button class="web-header__left-options"
+            mat-button
+            [matMenuTriggerFor]="menu">
+            <div class="d-flex align-items-center py-3">
+                <div class="web-header__user d-flex">
+                    <span class="web-header__user-name mx-3">
+                        {{userInfo?.fullName}}
+                    </span>
+                    <mat-icon class="web-header__user-photo mr-3" svgIcon="account"></mat-icon>
+                    <mat-icon class="web-header__user-expand" svgIcon="expand"></mat-icon>
+                </div>
+            </div>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+            <div class="web-header__user-info">
+                <mat-icon svgIcon="account"></mat-icon>
+                <span>{{userInfo?.email}}</span>
+            </div>
+            <button mat-menu-item (click)="logout()">
+                <mat-icon svgIcon="logout"></mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </sp-header-group>
+</sp-header>

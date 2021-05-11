@@ -1,0 +1,33 @@
+.menu a {
+    font-family: Caros;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #6E788F;
+    text-decoration: none;
+    padding-left: 42px;
+}
+
+.menu.bold a {
+    font-weight: bold;
+    line-height: 22px;
+    color: #10181F;
+}
+
+.menu a.active {
+    color: #EA1C2C;
+}
+
+.btn-primary,
+.btn-primary:active {
+    border-color: #192D3F !important;
+    background: #192D3F !important;
+    border-radius: 6px;
+}
+
+.btn-primary:focus,
+.btn-primary:active {
+    box-shadow: 0 0 0 0.2rem rgba(25, 45, 63, 0.5) !important;
+}

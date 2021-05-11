@@ -1,0 +1,38 @@
+.sp-widget {
+    height: 100%;
+    color: $font-color-secondary;
+
+    &__card-container {
+        height: 100%;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    &__header {
+        display: flex;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        flex-grow: 1;
+        overflow-y: auto;
+    }
+
+    &__footer {
+        display: flex;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        //height: 100%;
+        flex-grow: 1;
+    }
+}

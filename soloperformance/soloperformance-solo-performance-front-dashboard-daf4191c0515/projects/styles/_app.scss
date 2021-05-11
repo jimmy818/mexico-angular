@@ -1,0 +1,44 @@
+.sp {
+    &-logo {
+        margin-top: 2px;
+    }
+    &-value {
+        font-size: 12px;
+        &--secondary {
+            color: $font-color-secondary;
+        }
+    }
+    &-border {
+        border: 1px solid var(--border-color);
+    }
+    &-border-top {
+        border-top: 1px solid var(--border-color);
+    }
+    // Estatus de registro: Active, Inactivo
+    &-row-status {
+        display: inline-block;
+        width: 80px;
+        text-align: center;
+        padding: 5px 15px;
+        background-color: #e1f0ff;
+        color: #3799ff;
+        border-radius: 18px;
+        &--inactive {
+            background-color: #f6f7fb;
+            color: rgba(110, 120, 143, 0.5);
+        }
+    }
+}
+
+sp-progress-spinner {
+    .progress-spinner {
+        z-index: $backdrop-spinner-z-index;
+    }
+}
+
+
+.mat-icon-tmp{
+    .cls-1{
+        fill: none;
+    }
+}

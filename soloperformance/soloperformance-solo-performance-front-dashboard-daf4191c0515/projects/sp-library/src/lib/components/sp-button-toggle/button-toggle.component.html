@@ -1,0 +1,14 @@
+<div class="sp-button-toggle">
+    <mat-button-toggle #toggleBtn
+        [style.background-color]="!toggleBtn.checked?color:null"
+        [checked]="checked"
+        [disabled]="disabled"
+        (change)="onMatButtonToggleChange($event)">
+        <ng-container *ngIf="changeText && toggleBtn.checked;else content">
+            {{changeText}}
+        </ng-container>
+        <ng-template #content>
+            <ng-content></ng-content>
+        </ng-template>
+    </mat-button-toggle>
+</div>

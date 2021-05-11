@@ -1,0 +1,67 @@
+$icon-color: #a8abb9;
+$placeholder-color: $icon-color;
+$color: #6e788f;
+.sp-input-search {
+    &__container {
+        display: flex;
+        align-items: center;
+        width: 340px;
+        max-width: 100%;
+        height: 44px;
+        border-radius: 6px;
+        border: 1px solid #ecedf4;
+        transition: width 0.15s ease-in;
+        &--focus {
+            width: 360px;
+            box-shadow: inset 0 0 0 2px $color;
+        }
+    }
+    &__icon {
+        width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg path {
+            fill: $color;
+        }
+    }
+    &__input {
+        border: none;
+        outline: none;
+        padding: 0;
+        margin-right: 10px;
+        flex-grow: 1;
+        color: $color;
+    }
+    &__button {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin-left: -10px;
+        cursor: pointer;
+        svg {
+            fill: $color;
+        }
+        &--shown {
+            display: flex;
+        }
+    }
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $placeholder-color;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $placeholder-color;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: $placeholder-color;
+}

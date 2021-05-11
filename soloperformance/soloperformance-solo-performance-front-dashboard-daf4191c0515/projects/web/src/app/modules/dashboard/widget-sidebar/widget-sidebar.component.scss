@@ -1,0 +1,141 @@
+@import "variables";
+
+$sidebar-width: 410px;
+$margin-left: 50px;
+$floating-btn-width: 80px;
+$border-radius: 8px;
+$border: 1px solid $border-color;
+
+.sp-widget-sidebar {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: $sidebar-width * -1;
+    bottom: 40px;
+    margin-top: $header-height + ($font-size * 1.5);
+    width: $sidebar-width;
+    transition: right 0.15s linear;
+    &--open {
+        right: 0;
+    }
+    &__container {
+        position: relative;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+    }
+    &__floating-btn {
+        position: absolute;
+        z-index: 0;
+        bottom: 0;
+        left: $floating-btn-width * -1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: $floating-btn-width;
+        height: $floating-btn-width;
+        border: $border;
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+        box-shadow: 0px 4px 12px rgba(234, 28, 44, 0.25);
+        background: $accent;
+        color: $white;
+        cursor: pointer;
+        transition: all 0.15s linear;
+        &--hidden {
+            left: $margin-left;
+            box-shadow: none;
+            opacity: 0;
+        }
+        &-icon {
+            width: 20px;
+            height: 20px;
+            margin-top: 5px;
+        }
+    }
+    &__border {
+        position: absolute;
+        z-index: 0;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        left: -1px;
+        margin-left: $margin-left;
+        border-radius: 8px 0px 0px 8px;
+        background-color: $white;
+        border: $border;
+        box-shadow: 0px 5px 24px 9px #f3f3f6;
+        overflow: hidden;
+        &--loading {
+            z-index: 20;
+            background-color: transparent;
+        }
+    }
+    &__title {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        margin-bottom: 10px;
+        margin-top: -10px;
+        &-text {
+            flex-grow: 1;
+            font-weight: $font-weight-bold;
+        }
+        &-close {
+            margin-right: -13px;
+        }
+    }
+    &__header {
+        position: relative;
+        z-index: 10;
+        padding: $padding;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        margin-left: $margin-left;
+        background-color: $white;
+        border-top-left-radius: $border-radius;
+    }
+    &__content {
+        position: relative;
+        z-index: 10;
+        overflow-y: auto;
+        flex-grow: 1;
+    }
+    &__footer {
+        position: relative;
+        z-index: 10;
+        height: $border-radius;
+        margin-left: $margin-left;
+        background-color: $white;
+        border-bottom-left-radius: $border-radius;
+    }
+    &__widgets {
+        position: absolute;
+        z-index: 20;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        margin-left: $margin-left;
+        background-color: $white;
+        padding: 20px 0 5px 0;
+    }
+    &__no-data {
+        position: relative;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+        padding: $padding;
+        background-color: $color6;
+        color: $font-color-inactive;
+        font-weight: $font-weight-bold;
+    }
+}
+
+web-widget-preview {
+    margin-bottom: 15px;
+}

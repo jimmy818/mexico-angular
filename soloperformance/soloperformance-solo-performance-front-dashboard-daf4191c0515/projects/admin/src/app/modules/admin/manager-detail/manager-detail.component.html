@@ -1,0 +1,134 @@
+<form class="sp-form" [formGroup]="form">
+    <sp-dialog>
+        <sp-dialog-title
+            [title]="title"
+            subtitle="Select the following information for your new user">
+        </sp-dialog-title>
+        <sp-dialog-content>
+            <div style="height: 65vh;">
+                <div class="mt-3">
+                    <!-- Institution/ client -->
+                    <ng-container *ngIf="withInstitutionData" formGroupName="institution">
+                        <!-- Nombre de institución -->
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Institution's name</mat-label>
+                            <input matInput
+                                [formControlName]="controlNames.institutionName"
+                                placeholder="Institution's name"
+                                required>
+                            <mat-hint style="font-size:12px">
+                                <span class="font-weight-bold">DB Name: </span>
+                                {{institutionForm.get(controlNames.institutionName).value | dbName}}
+                            </mat-hint>
+                        </mat-form-field>
+                        <!-- Equipo -->
+                        <ng-container formGroupName="team">
+                            <mat-form-field appearance="outline" class="w-100 mt-4">
+                                <mat-label>Associate team</mat-label>
+                                <input matInput
+                                    [formControlName]="controlNames.teamName"
+                                    placeholder="Associate team">
+                            </mat-form-field>
+                        </ng-container>
+                        <!-- Tipo de suscripción/plan -->
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Type</mat-label>
+                            <mat-select [formControlName]="controlNames.institutionType" required>
+                                <mat-option *ngFor="let subscription of subscriptionTypes"
+                                    [value]="subscription"
+                                    [disabled]="subscription===subscriptionType.paying?true:null">
+                                    {{subscription | subscriptionType}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </ng-container>
+                    <!-- Institution Manager -->
+                    <ng-container formGroupName="manager">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Name</mat-label>
+                            <input matInput
+                                [formControlName]="controlNames.managerName"
+                                placeholder="Name"
+                                required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput
+                                [formControlName]="controlNames.managerLastname"
+                                placeholder="Last Name"
+                                required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Email</mat-label>
+                            <input matInput
+                                [formControlName]="controlNames.managerEmail"
+                                placeholder="Email"
+                                required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput
+                                [formControlName]="controlNames.managerPhone"
+                                placeholder="Phone Number"
+                                required>
+                        </mat-form-field>
+                        <sp-gender-select class="w-100"
+                            [required]="true"
+                            (genderChange)="genderChange($event)">
+                        </sp-gender-select>
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Date of Birth</mat-label>
+                            <input matInput [matDatepicker]="birthdate"
+                                [formControlName]="controlNames.managerBirthdate">
+                            <mat-datepicker-toggle matSuffix [for]="birthdate"></mat-datepicker-toggle>
+                            <mat-datepicker #birthdate></mat-datepicker>
+                        </mat-form-field>
+                        <!-- Autenticación -->
+                        <ng-container formGroupName="auth">
+                            <div class="row no-gutters">
+                                <div class="col-6">
+                                    <div class="mr-2">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>Password</mat-label>
+                                            <input type="password"
+                                                matInput
+                                                [formControlName]="controlNames.password"
+                                                placeholder="Password"
+                                                required>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="ml-2">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>Password Confirm</mat-label>
+                                            <input type="password" matInput
+                                                [formControlName]="controlNames.passwordConfirm"
+                                                placeholder="Password Confirm"
+                                                required>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+        </sp-dialog-content>
+        <sp-dialog-actions>
+            <button mat-stroked-button
+                color="primary"
+                [mat-dialog-close]="null"
+                type="button">
+                Cancel
+            </button>
+            <button mat-raised-button
+                color="primary"
+                [disabled]="form.invalid"
+                (click)="save()"
+                type="submit">
+                Save
+            </button>
+        </sp-dialog-actions>
+    </sp-dialog>
+</form>

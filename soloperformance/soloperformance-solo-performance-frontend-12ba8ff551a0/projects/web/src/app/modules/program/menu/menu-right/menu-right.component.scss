@@ -1,0 +1,29 @@
+.box{
+  text-align: center;
+  border: 1px solid #ECEDF4;
+  border-radius: 4px;
+  color: #A8ABB9;
+  font-size: 12px;
+  font-weight: bold;
+  width: 92px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  color: #6E788F;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+button{
+  width: 21px;
+  height: 21px;
+  border: 2px solid #ECEDF4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6E788F;
+}

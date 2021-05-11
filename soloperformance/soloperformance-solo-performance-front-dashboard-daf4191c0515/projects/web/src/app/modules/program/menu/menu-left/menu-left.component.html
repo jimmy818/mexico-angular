@@ -1,0 +1,31 @@
+<div cdkDropList class="row" (cdkDropListDropped)="dropPhases($event)">
+  <div cdkDrag class="d-flex mt-2" *ngFor="let item of phases; let i = index;">
+    <div class="vertical box" [class.h-min]="item.weeks.length == 1">
+      <div class="actions">
+        <button mat-icon-button aria-label="more" class="mx-auto"><img src="assets/icons/add.svg" alt=""></button>
+        <button mat-icon-button aria-label="more" class="mx-auto"><img src="assets/icons/copy.svg" alt=""></button>
+        <button mat-icon-button aria-label="more" class="mx-auto" (click)="deletePhase(i)"><img src="assets/icons/trash.svg" alt=""></button>
+      </div>
+      <div class="rotate">
+        <div >Phase {{i + 1}}</div>
+        <div class="active">{{item.name}}</div>
+      </div>
+    </div>
+    <div cdkDropList class="horizontal" (cdkDropListDropped)="dropWeeks($event, i)">
+      <div cdkDrag class="box my-2" [class.active]="item.active == week.id" *ngFor="let week of item.weeks; let ii = index;">
+        <div class="actions">
+          <button mat-icon-button aria-label="more" class="mx-auto" (click)="deleteWeek(i, ii)"><img src="assets/icons/trash.svg" alt=""></button>
+          <button mat-icon-button aria-label="more" class="mx-auto"><img src="assets/icons/copy.svg" alt=""></button>
+        </div>
+        <span>1</span><br> Out of 5
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <p class="text-right">Phase</p>
+<hr>
+<div class="d-flex justify-content-end">
+  <button mat-icon-button aria-label="more" class="border mr-2">+</button>
+  <button mat-icon-button aria-label="less" class="border">-</button>
+</div> -->

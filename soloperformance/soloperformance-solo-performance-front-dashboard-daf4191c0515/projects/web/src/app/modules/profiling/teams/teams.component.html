@@ -1,0 +1,41 @@
+<sp-card>
+    <sp-header [fluid]="true">
+        <sp-header-group [expanded]="true">
+            <a class="sp-link-button"
+                mat-button
+                routerLinkActive="sp-link-button--selected"
+                [routerLink]="['./mexico']">
+                Mexico
+            </a>
+            <a class="sp-link-button"
+                mat-button
+                routerLinkActive="sp-link-button--selected"
+                [routerLink]="['./usa']">
+                USA
+            </a>
+            <a class="sp-link-button"
+                mat-button
+                routerLinkActive="sp-link-button--selected"
+                [routerLink]="['./a']">
+                Futbol A
+            </a>
+               <a class="sp-link-button"
+                mat-button
+                routerLinkActive="sp-link-button--selected"
+                [routerLink]="['./junior']">
+                Futbol Junior
+            </a>
+        </sp-header-group>
+        <sp-header-group>
+            <button class="ml-3"
+                mat-flat-button color="primary">
+                New evaluation
+            </button>
+        </sp-header-group>
+    </sp-header>
+</sp-card>
+<div class="mt-4 mh-100">
+  <sp-card>
+    <router-outlet></router-outlet>
+  </sp-card>
+</div>

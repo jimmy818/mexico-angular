@@ -1,0 +1,16 @@
+<div #container class="sp-input-search__container">
+    <!-- Ícono -->
+    <div class="sp-input-search__icon">
+        <mat-icon svgIcon="search"></mat-icon>
+    </div>
+    <!-- Entrada de texto -->
+    <input #input
+        type="search"
+        class="sp-input-search__input"
+        [placeholder]="placeholder"
+        (focus)="onFocus()"
+        [(ngModel)]="search"
+        (blur)="onBlur()"
+        (keyup.enter)="onKeyEnter(input.value)"
+        (ngModelChange)="onSearchChange()">
+</div>

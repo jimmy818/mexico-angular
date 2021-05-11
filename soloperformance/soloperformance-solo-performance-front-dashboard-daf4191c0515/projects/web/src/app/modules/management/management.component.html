@@ -1,0 +1,19 @@
+<div class="menu bold mb-4">
+  <a routerLinkActive="active" [routerLink]="'roles'">Roles</a>
+  <a routerLinkActive="active" [routerLink]="'teams'">Teams</a>
+  <a routerLinkActive="active" [routerLink]="'athletes'">Athletes</a>
+</div>
+
+<sp-card>
+  <sp-header [fluid]="true">
+    <sp-header-group [expanded]="true"></sp-header-group>
+    <sp-header-group>
+      <sp-input-search class="my-n2"></sp-input-search>
+      <button mat-flat-button color="primary" class="ml-4" type="button" name="button" (click)="add()">
+        New {{btnAdd}}
+      </button>
+    </sp-header-group>
+  </sp-header>
+</sp-card>
+
+<router-outlet></router-outlet>

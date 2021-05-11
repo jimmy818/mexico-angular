@@ -1,0 +1,39 @@
+<web-grid-stack></web-grid-stack>
+<!-- <div #container class="dashboard__container">
+    <div #gridstack class="grid-stack">
+        <ng-container *ngFor="let widget of widgets">
+            <div #widget
+                class="grid-stack-item"
+                [attr.id]="widget.id"
+                [attr.data-gs-id]="widget.id"
+                [attr.data-gs-height]="4"
+                [attr.data-gs-width]="widget.size">
+                <div class="grid-stack-item-content">
+                    <sp-card class="grid-stack-item-header">
+                        <sp-header class="mt-n3" [fluid]="true">
+                            <sp-header-group [expanded]="true" [isTitle]="true">
+                                {{widget.name}}
+                            </sp-header-group>
+                            <sp-header-group [alignment]="headerGroupAlignment.right">
+                                <button mat-icon-button [matMenuTriggerFor]="menu">
+                                    <mat-icon svgIcon="more_vertical"></mat-icon>
+                                </button>
+                                <mat-menu #menu="matMenu" xPosition="before">
+                                    <button mat-menu-item (click)="deleteWidget(widget)">Erase widget</button>
+                                    <button mat-menu-item (click)="duplicateWidget(widget)">Duplicate widget</button>
+                                </mat-menu>
+                            </sp-header-group>
+                        </sp-header>
+                        <div class="dashboard__widget-container">
+                            <span>{{widget.name}}</span>
+                        </div>
+                    </sp-card>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div> -->
+
+<!-- Widget -->
+<web-widget-sidebar (widgetPreviewClick)="onWidgetPreviewClick($event)">
+</web-widget-sidebar>

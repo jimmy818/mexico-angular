@@ -1,0 +1,184 @@
+<sp-dialog [isCloseButtonVisible]="true">
+    <sp-dialog-title [title]="'Add Workout'"
+        [subtitle]="'Select the following information'">
+    </sp-dialog-title>
+    <sp-dialog-content>
+        <div class="web-workout-add" style="height: 65vh;">
+            <!-- Lista de categorías de bloques -->
+            <div class="web-category__options">
+                <ng-container *ngFor="let category of categories">
+                    <div class="web-category__option">
+                        <button class="web-category__option-button"
+                            mat-icon-button
+                            (click)="addBlock(category)">
+                            <img class="web-category__option-icon" [src]="category.icon" alt="Category">
+                        </button>
+                        <span class="web-category__option-text">
+                            {{category.name}}
+                        </span>
+                    </div>
+                </ng-container>
+            </div>
+            <!-- Sin categorías agregadas -->
+            <div *ngIf="!categoriesForm.controls.length" class="web-workout-add__no-data d-flex justify-content-center">
+                <span>Select a block category for add</span>
+            </div>
+            <!-- Categorías de bloques, bloques, atletas -->
+            <div *ngIf="categoriesForm.controls.length" class="d-flex flex-grow-1 overflow-auto">
+                <!-- Categorías, bloques -->
+                <form class="web-workout-add__categories"
+                    [formGroup]="workoutForm">
+                    <ng-container formArrayName="categories">
+                        <div *ngFor="let category of categoriesForm.controls;let categoryIdx = index"
+                            class="web-category__group mb-3">
+                            <!-- Categoría -->
+                            <div class="web-category__group-id">
+                                <div class="web-category__group-id-item">
+                                    <img class="web-category__group-id-icon"
+                                        [src]="category.get('icon').value"
+                                        alt="Category">
+                                    <ng-container *ngIf="!category.get('subcodings').value.length">
+                                        <span class="web-category__group-id-text">{{category.get('name').value}}</span>
+                                    </ng-container>
+                                    <ng-container *ngIf="category.get('subcodings').value.length">
+                                        <mat-form-field
+                                            class="sp-select--appearance-none"
+                                            appearance="none">
+                                            <mat-select [placeholder]="category.get('name').value">
+                                                <mat-option *ngFor="let subcoding of category.get('subcodings').value"
+                                                    [value]="subcoding.id">
+                                                    {{category.get('name').value}}/ {{subcoding.name}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <!-- Bloques -->
+                            <div [formGroupName]="categoryIdx" class="web-category__blocks">
+                                <ng-container formArrayName="blocks">
+                                    <ng-container
+                                        *ngFor="let block of category.get('blocks').controls;let blockIdx = index">
+                                        <ng-container [formGroupName]="blockIdx">
+                                            <div class="web-category__block"
+                                                [class.web-category__block--hovered]="block===hoveredBlock"
+                                                [class.web-category__block--selected]="block===selectedBlock"
+                                                (mouseover)="mouseoverBlock(block)"
+                                                (mouseout)="mouseoutBlock()">
+                                                <div class="web-category__block-content">
+                                                    <!-- Tipo de bloque -->
+                                                    <div class="web-category__block-item">
+                                                        <mat-form-field
+                                                            class="sp-select--appearance-none"
+                                                            appearance="none">
+                                                            <mat-select formControlName="id" placeholder="Block type">
+                                                                <mat-option *ngFor="let blockType of blockTypes"
+                                                                    [value]="blockType.id">
+                                                                    {{blockType.name}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <!-- Atletas asignados -->
+                                                    <div
+                                                        class="web-category__block-item web-category__block-item--athletes d-flex align-items-center"
+                                                        [matTooltip]="'Assign/ unassign athletes'"
+                                                        (click)="selectBlock(block)">
+                                                        <button mat-button
+                                                            [hidden]="block!==hoveredBlock || block.get('athletes').value.length">
+                                                            <span>Athletes</span>
+                                                            <img class="ml-2" src="assets/icons/chevron-right.svg"
+                                                                alt="">
+                                                        </button>
+                                                        <web-imgs *ngIf="block.get('athletes').value.length"
+                                                            class="web-workout-add__imgs"
+                                                            [imgs]="block.get('athletes').value"
+                                                            [max]="5"
+                                                            [key]="'photo'"
+                                                            [imgWidth]="'30px'">
+                                                        </web-imgs>
+                                                    </div>
+                                                    <!-- Número de ejercicios del bloque -->
+                                                    <div class="web-category__block-item">
+                                                        <mat-form-field
+                                                            class="sp-select--appearance-none"
+                                                            appearance="none">
+                                                            <mat-select formControlName="exercisesNumber"
+                                                                placeholder="Exercises">
+                                                                <mat-option
+                                                                    *ngFor="let exerciseNumber of exercisesNumbers"
+                                                                    [value]="exerciseNumber">
+                                                                    {{exerciseNumber}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <!-- Remove block -->
+                                                <div class="web-category__remove-block">
+                                                    <button [hidden]="!(block===hoveredBlock || block===selectedBlock)"
+                                                        mat-icon-button
+                                                        matTooltip="Remove block"
+                                                        (click)="removeBlock(categoryIdx, blockIdx)">
+                                                        <img src="assets/icons/trash.svg" alt="">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </ng-container>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </ng-container>
+                </form>
+                <div class="web-workout-add__athletes ml-3">
+                    <!-- Selección de atletas -->
+                    <div *ngIf="!selectedBlock" class="web-workout-add__no-data">
+                        <span>
+                            Select Athletes option for set athletes to block
+                        </span>
+                    </div>
+                    <div *ngIf="selectedBlock" class="web-athletes__container">
+                        <span class="mb-2">Select the athletes for the individual block</span>
+                        <sp-input-search [createParams]="false"
+                            [search]="searchAthleteValue"
+                            [placeholder]="'Search an athlete’s name'"
+                            (valueChange)="onInputSearchValueChange($event)">
+                        </sp-input-search>
+                        <div class="web-athletes__selection flex-grow-1 mt-2">
+                            <div class="web-athletes__select-all">
+                                <mat-checkbox class="mb-n2"
+                                    [color]="'primary'"
+                                    [checked]="selectAllAthletesChecked"
+                                    (change)="onAthletesSelectAll($event)">
+                                </mat-checkbox>
+                            </div>
+                            <div class="web-athletes__list">
+                                <mat-selection-list #athletesList
+                                    (selectionChange)="onAthleteListSelectionChange()">
+                                    <mat-list-option *ngFor="let athlete of filteredAthletes"
+                                        [color]="'primary'"
+                                        [value]="athlete"
+                                        [selected]="athlete.selected">
+                                        <img matListAvatar
+                                            [src]="athlete.photo"
+                                            alt="">
+                                        <span matLine>{{athlete.name}}</span>
+                                    </mat-list-option>
+                                </mat-selection-list>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sp-dialog-content>
+    <sp-dialog-actions>
+        <button mat-flat-button
+            color="primary"
+            type="submit"
+            (click)="onCreateClick()">
+            Create block
+        </button>
+    </sp-dialog-actions>
+</sp-dialog>

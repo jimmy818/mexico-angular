@@ -1,0 +1,23 @@
+$border: 1px solid $border-color;
+
+.sp-container {
+    &--bordered {
+        border: $border;
+    }
+
+    &--btop {
+        border-top: $border;
+    }
+
+    &--bright {
+        border-top: $border;
+    }
+
+    &--bbottom {
+        border-bottom: $border;
+    }
+
+    &--bleft {
+        border-top: $border;
+    }
+}

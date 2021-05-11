@@ -1,0 +1,45 @@
+@import 'variables';
+
+.web-workout-detail {
+    &__panel-container {
+        margin-bottom: $margin;
+    }
+
+    &__panel-body {
+        height: 300px;
+    }
+
+    &__option {
+        margin-left: 15px;
+        background-color: #ffffff;
+
+        &--filter {
+            background-color: transparent;
+        }
+
+        &--weekly {
+            min-width: 104px;
+            background-color: transparent;
+        }
+    }
+}
+
+.sp-exercise {
+    &__filter-container {
+        overflow: auto;
+        max-height: 0;
+        margin-bottom: 0;
+        transition: max-height 0.15s linear, margin-bottom 0.15s linear;
+
+        &--expanded {
+            max-height: 250px;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__menu-container {
+        max-width: 660px;
+        max-height: 400px;
+        //background-color: #F6F7FB;
+    }
+}

@@ -1,0 +1,60 @@
+$border: 1px solid $border-color;
+
+.horizontal-spacer {
+  flex: 1 1 auto;
+}
+
+.sp-border {
+  border: $border;
+
+  &-top {
+    border-top: $border;
+  }
+
+  &-right {
+    border-right: $border;
+  }
+
+  &-bottom {
+    border-bottom: $border;
+  }
+
+  &-left {
+    border-left: $border;
+  }
+}
+
+.sp-font {
+  font-weight: $font-weight-normal;
+
+  &--primary {
+    color: $font-color-primary;
+  }
+
+  &--bold {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.sp-no-data {
+  color: $font-color-no-data;
+  padding: 14px;
+}
+
+.sp-mat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+  pointer-events: none;
+}
+
+.sp-text-overflow {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

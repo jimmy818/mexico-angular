@@ -1,0 +1,41 @@
+<sp-dialog>
+    <sp-dialog-title
+        title="New Team"
+        subtitle="Select the following information for your new team">
+    </sp-dialog-title>
+    <sp-dialog-content>
+
+      <!-- mat-tab-group  -->
+      <mat-tab-group mat-align-tabs="end">
+        <!-- teams -->
+        <mat-tab label="Teams">
+
+          <!-- Team’s name -->
+          <mat-form-field appearance="standard">
+            <mat-label>Team’s name</mat-label>
+            <input matInput placeholder="Name" required>
+            <!-- <mat-error *ngIf="name.hasError('required')">required</mat-error> -->
+          </mat-form-field>
+
+          <!--upload-image -->
+          <web-upload-image [width]="80"></web-upload-image>
+
+        </mat-tab>
+
+        <!-- Athletes  -->
+        <mat-tab label="Athletes">
+          <p class="mt-3">Select the athletes for the team</p>
+          <!-- <sp-input-search></sp-input-search> -->
+        </mat-tab>
+
+        <!-- Coaches -->
+        <mat-tab label="Coaches">
+        </mat-tab>
+      </mat-tab-group>
+
+    </sp-dialog-content>
+    <sp-dialog-actions>
+      <button mat-stroked-button color="primary" [mat-dialog-close]="null" type="button">Cancel</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+    </sp-dialog-actions>
+</sp-dialog>

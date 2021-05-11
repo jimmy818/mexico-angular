@@ -1,0 +1,396 @@
+<div class="container-fluid">
+    <div class="row no-gutters">
+        <!-- Gráfica de seguimiento/ instituciones -->
+        <div class="col-9">
+            <div class="row no-gutters mr-4">
+                <div class="col-12">
+                    <sp-card>
+                        <sp-header [fluid]="true" class="mb-3">
+                            <sp-header-group>
+                                <div class="d-flex flex-column">
+                                    <span class="dashboard__card-title">{{currentChart | adminChartTitle}}</span>
+                                    <span class="dashboard__card-subtitle">{{currentChart | adminChartSubtitle}}</span>
+                                </div>
+                            </sp-header-group>
+                            <sp-header-group [expanded]="true"
+                                [alignment]="headerGroupAlignment.right">
+                                <button mat-button class="dashboard__button dashboard__button--filter"
+                                    [color]="currentChart===adminChart.newUsers?'primary':null"
+                                    [class.mat-flat-button]="currentChart===adminChart.newUsers"
+                                    [class.dashboard__button--secondary]="currentChart!==adminChart.newUsers"
+                                    (click)="showTrackingChart(adminChart.newUsers)">
+                                    New Users
+                                </button>
+                                <button mat-button class="dashboard__button dashboard__button--filter"
+                                    [color]="currentChart===adminChart.conversionRate?'primary':null"
+                                    [class.mat-flat-button]="currentChart===adminChart.conversionRate"
+                                    [class.dashboard__button--secondary]="currentChart!==adminChart.conversionRate"
+                                    (click)="showTrackingChart(adminChart.conversionRate)">
+                                    Conversion Rate
+                                </button>
+                                <button mat-button class="dashboard__button dashboard__button--filter"
+                                    [color]="currentChart===adminChart.churnRate?'primary':null"
+                                    [class.mat-flat-button]="currentChart===adminChart.churnRate"
+                                    [class.dashboard__button--secondary]="currentChart!==adminChart.churnRate"
+                                    (click)="showTrackingChart(adminChart.churnRate)">
+                                    Churn Rate
+                                </button>
+                            </sp-header-group>
+                            <sp-header-group>
+                                <mat-select
+                                    [(value)]="averageRevenueChartPeriodicity"
+                                    class="dashboard__select dashboard__select--tracking select--filter"
+                                    [class.select--filter-selected]="currentChart===adminChart.averageWeeklyRevenue || currentChart===adminChart.averageMonthlyRevenue || currentChart===adminChart.averageYearlyRevenue"
+                                    (selectionChange)="selectAverageRevenueChart($event)">
+                                    <mat-option *ngFor="let option of periodicity"
+                                        [value]="option.value">{{option.value | averageRevenue}}</mat-option>
+                                </mat-select>
+                            </sp-header-group>
+                        </sp-header>
+                        <div id="canvas-container" class="w-100">
+                            <canvas id="adminChartCanvas">{{ adminChartData }}</canvas>
+                        </div>
+                    </sp-card>
+                </div>
+            </div>
+            <div class="row no-gutters mr-4 mt-4">
+                <div class="col-12">
+                    <sp-card>
+                        <!-- Lista de instituciones/ usuarios -->
+                        <admin-institution-list class="mb-n3"
+                            (addUser)="addNewUser()"
+                            (showDetail)="showUserDetail($event)">
+                        </admin-institution-list>
+                    </sp-card>
+                </div>
+            </div>
+        </div>
+        <!-- Gráficas de económico/ detalle de institución -->
+        <div class="col-3">
+            <!-- Gráficas de económico -->
+            <div class="dashboard__chart-container"
+                [class.dashboard__chart-container--hidden]="selectedInstitution">
+                <!-- Total revenue -->
+                <div class="row">
+                    <div class="col-12">
+                        <sp-card>
+                            <sp-header [fluid]="true" class="mb-4">
+                                <sp-header-group>
+                                    <span class="dashboard__card-title dashboard__card-title--secondary">
+                                        {{adminChart.totalRevenue | adminChartTitle}}
+                                    </span>
+                                </sp-header-group>
+                                <sp-header-group [expanded]="true"
+                                    [alignment]="headerGroupAlignment.right">
+                                    <mat-select [(value)]="totalRevenueChartPeriodicity"
+                                        class="dashboard__select select--appearance-none"
+                                        (selectionChange)="selectPeriodicity(adminChart.totalRevenue, $event)">
+                                        <mat-option *ngFor="let option of periodicity"
+                                            [value]="option.value">{{option.text}}</mat-option>
+                                    </mat-select>
+                                </sp-header-group>
+                            </sp-header>
+                            <div class="w-100 mb-n2">
+                                <canvas id="totalMontlyRevenueChart">{{ totalRevenueChart }}</canvas>
+                            </div>
+                        </sp-card>
+                    </div>
+                </div>
+                <!-- Total users -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <sp-card>
+                            <sp-header [fluid]="true" class="mb-4">
+                                <sp-header-group>
+                                    <span class="dashboard__card-title dashboard__card-title--secondary">
+                                        {{adminChart.totalUsers | adminChartTitle}}
+                                    </span>
+                                </sp-header-group>
+                                <sp-header-group [expanded]="true"
+                                    [alignment]="headerGroupAlignment.right">
+                                    <mat-select [(value)]="totalUsersChartPeriodicity"
+                                        class="dashboard__select select--appearance-none"
+                                        (selectionChange)="selectPeriodicity(adminChart.totalUsers, $event)">
+                                        <mat-option *ngFor="let option of periodicity"
+                                            [value]="option.value">{{option.text}}</mat-option>
+                                    </mat-select>
+                                </sp-header-group>
+                            </sp-header>
+                            <div class="w-100 mb-n2">
+                                <canvas id="totalUsersChart">{{ totalUsersChart }}</canvas>
+                            </div>
+                        </sp-card>
+                    </div>
+                </div>
+                <!-- Active users -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <sp-card>
+                            <sp-header [fluid]="true" class="mb-4">
+                                <sp-header-group>
+                                    <span class="dashboard__card-title dashboard__card-title--secondary">
+                                        {{adminChart.activeUsers | adminChartTitle}}
+                                    </span>
+                                </sp-header-group>
+                                <sp-header-group [expanded]="true"
+                                    [alignment]="headerGroupAlignment.right">
+                                    <mat-select [(value)]="activeUsersChartPeriodicity"
+                                        class="dashboard__select select--appearance-none"
+                                        (selectionChange)="selectPeriodicity(adminChart.activeUsers, $event)">
+                                        <mat-option *ngFor="let option of periodicity"
+                                            [value]="option.value">{{option.text}}</mat-option>
+                                    </mat-select>
+                                </sp-header-group>
+                            </sp-header>
+                            <div class="w-100 mb-n2">
+                                <canvas id="montlyActiveUsersChart">{{ activeUsersChart }}</canvas>
+                            </div>
+                        </sp-card>
+                    </div>
+                </div>
+                <!-- Churned customers -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <sp-card>
+                            <sp-header [fluid]="true" class="mb-4">
+                                <sp-header-group>
+                                    <span class="dashboard__card-title dashboard__card-title--secondary">
+                                        {{adminChart.churnedCustomers | adminChartTitle}}
+                                    </span>
+                                </sp-header-group>
+                                <sp-header-group [expanded]="true"
+                                    [alignment]="headerGroupAlignment.right">
+                                    <mat-select [(value)]="churnedCustomersChartPeriodicity"
+                                        class="dashboard__select select--appearance-none"
+                                        (selectionChange)="selectPeriodicity(adminChart.churnedCustomers, $event)">
+                                        <mat-option *ngFor="let option of periodicity"
+                                            [value]="option.value">{{option.text}}</mat-option>
+                                    </mat-select>
+                                </sp-header-group>
+                            </sp-header>
+                            <div class="w-100 mb-n2">
+                                <canvas id="churnedCustomersChart">{{ churnedCustomersChart }}</canvas>
+                            </div>
+                        </sp-card>
+                    </div>
+                </div>
+            </div>
+            <!-- Detalle de institución -->
+            <div class="dashboard__chart-container"
+                [class.dashboard__chart-container--hidden]="!selectedInstitution">
+                <sp-card>
+                    <sp-header [fluid]="true" class="mb-4">
+                        <sp-header-group>
+                            <button mat-icon-button (click)="hideUserDetail()">
+                                <mat-icon svgIcon="back"></mat-icon>
+                            </button>
+                        </sp-header-group>
+                        <sp-header-group [expanded]="true" [alignment]="headerGroupAlignment.left">
+                            <span class="dashboard__card-title dashboard__card-title--secondary">
+                                User Detail
+                            </span>
+                        </sp-header-group>
+                    </sp-header>
+                    <!-- Institution Managers -->
+                    <div class="dashboard__detail-container">
+                        <div class="d-flex justify-content-end">
+                            <button mat-raised-button
+                                class="dashboard__button"
+                                color="primary"
+                                (click)="addNewManager()">
+                                Add manager
+                            </button>
+                        </div>
+                        <sp-header [fluid]="true" class="mb-3">
+                            <sp-header-group>
+                                <span class="dashboard__card-title dashboard__card-title--tertiary">
+                                    Institution Managers
+                                </span>
+                            </sp-header-group>
+                        </sp-header>
+                        <ng-container *ngIf="institutionDetail?.institution_managers?.length; else noManagers">
+                            <ul>
+                                <li *ngFor="let manager of institutionDetail?.institution_managers"
+                                    class="dashboard__detail-item">
+                                    <div class="dashboard__detail-item-icon">
+                                        <mat-icon svgIcon="manager"></mat-icon>
+                                    </div>
+                                    <div class="dashboard__detail-item-text">
+                                        <span>{{manager.full_name}}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </ng-container>
+                        <ng-template #noManagers>
+                            <span class="sp-value sp-value--secondary">
+                                There are no registered institution managers yet
+                            </span>
+                        </ng-template>
+                    </div>
+                    <!-- Strength coaches -->
+                    <div class="dashboard__detail-container mt-5">
+                        <sp-header [fluid]="true" class="mb-3">
+                            <sp-header-group>
+                                <span class="dashboard__card-title dashboard__card-title--tertiary">
+                                    Strength Coaches
+                                </span>
+                            </sp-header-group>
+                        </sp-header>
+                        <span class="sp-value sp-value--secondary">There are no registered coaches yet</span>
+                    </div>
+                    <!-- Institution Stats -->
+                    <div class="dashboard__detail-container mt-5">
+                        <sp-header [fluid]="true" class="mb-3">
+                            <sp-header-group>
+                                <span class="dashboard__card-title dashboard__card-title--tertiary">
+                                    Institution Stats
+                                </span>
+                            </sp-header-group>
+                        </sp-header>
+                        <!-- System time used -->
+                        <div class="dashboard__data dashboard__data--stat sp-border flex-column">
+                            <span class="dashboard__data-value dashboard__data-value--lg">
+                                24 hrs 21 min
+                            </span>
+                            <span class="dashboard__data-description">
+                                System time used
+                            </span>
+                        </div>
+                        <!-- Created athletes -->
+                        <div class="d-flex mt-3">
+                            <div class="dashboard__data dashboard__data--stat sp-border flex-column w-50 mr-3">
+                                <span class="dashboard__data-value dashboard__data-value--lg">
+                                    350
+                                </span>
+                                <span class="dashboard__data-description">
+                                    Created athletes
+                                </span>
+                            </div>
+                            <div class="dashboard__data dashboard__data--stat sp-border flex-column w-50">
+                                <span class="dashboard__data-value dashboard__data-value--lg">
+                                    350
+                                </span>
+                                <span class="dashboard__data-description">
+                                    Created athletes
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex mt-3">
+                            <div class="dashboard__data dashboard__data--stat sp-border flex-column w-50 mr-3">
+                                <span class="dashboard__data-value dashboard__data-value--lg">
+                                    350
+                                </span>
+                                <span class="dashboard__data-description">
+                                    Monthly login
+                                </span>
+                            </div>
+                            <div class="dashboard__data dashboard__data--stat sp-border flex-column w-50">
+                                <span class="dashboard__data-value dashboard__data-value--lg">
+                                    350
+                                </span>
+                                <span class="dashboard__data-description">
+                                    Created athletes
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex mt-3">
+                            <div class="dashboard__data dashboard__data--stat sp-border flex-column w-50 mr-3">
+                                <span class="dashboard__data-value dashboard__data-value--lg">
+                                    350
+                                </span>
+                                <span class="dashboard__data-description">
+                                    Created athletes
+                                </span>
+                            </div>
+                            <div class="dashboard__data dashboard__data--stat sp-border flex-column w-50">
+                                <span class="dashboard__data-value dashboard__data-value--lg">
+                                    350
+                                </span>
+                                <span class="dashboard__data-description">
+                                    Created teams
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Total revenue -->
+                    <div class="dashboard__detail-container mt-5">
+                        <sp-header [fluid]="true" class="mb-3">
+                            <sp-header-group>
+                                <span class="dashboard__card-title dashboard__card-title--tertiary">
+                                    Total Revenue
+                                </span>
+                            </sp-header-group>
+                        </sp-header>
+                        <div class="dashboard__data">
+                            <div class="dashboard__data-text">
+                                <span>Monthly revenue</span>
+                            </div>
+                            <div class="dashboard__data-value">
+                                <span>0</span>
+                            </div>
+                        </div>
+                        <div class="dashboard__data mt-3">
+                            <div class="dashboard__data-text">
+                                <span>Tax</span>
+                            </div>
+                            <div class="dashboard__data-value">
+                                <span>0</span>
+                            </div>
+                        </div>
+                        <div class="dashboard__data sp-border-top mt-3 pt-3">
+                            <div class="dashboard__data-text">
+                                <span>Total revenue</span>
+                            </div>
+                            <div class="dashboard__data-value">
+                                <span>0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Economic -->
+                    <div class="dashboard__detail-container mt-5">
+                        <sp-header [fluid]="true" class="mb-3">
+                            <sp-header-group>
+                                <span class="dashboard__card-title dashboard__card-title--tertiary">
+                                    Economic
+                                </span>
+                            </sp-header-group>
+                        </sp-header>
+                        <div class="dashboard__data">
+                            <div class="dashboard__data-text">
+                                <span>ARPU</span>
+                                <span class="dashboard__data-description">
+                                    Average revenue per user
+                                </span>
+                            </div>
+                            <div class="dashboard__data-value">
+                                <span>0</span>
+                            </div>
+                        </div>
+                        <div class="dashboard__data mt-3">
+                            <div class="dashboard__data-text">
+                                <span>CLV</span>
+                                <span class="dashboard__data-description">
+                                    Customer lifetime value
+                                </span>
+                            </div>
+                            <div class="dashboard__data-value">
+                                <span>0</span>
+                            </div>
+                        </div>
+                        <div class="dashboard__data mt-3">
+                            <div class="dashboard__data-text">
+                                <span>Rate</span>
+                                <span class="dashboard__data-description">
+                                    Accumulated paying months
+                                </span>
+                            </div>
+                            <span class="dashboard__data-value">
+                                0
+                            </span>
+                        </div>
+                    </div>
+                </sp-card>
+            </div>
+        </div>
+    </div>
+</div>

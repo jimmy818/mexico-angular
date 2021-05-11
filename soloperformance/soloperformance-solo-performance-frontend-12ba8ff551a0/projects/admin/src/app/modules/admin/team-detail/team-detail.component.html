@@ -1,0 +1,45 @@
+<sp-dialog>
+    <sp-dialog-title
+        title="New Team"
+        subtitle="Select the following information for your new team">
+    </sp-dialog-title>
+    <sp-dialog-content>
+        <mat-tab-group mat-align-tabs="end" [color]="'accent'">
+            <mat-tab label="Information">
+                <form [formGroup]="teamDetailForm" class="mt-4">
+                    <!-- Name -->
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="name" placeholder="Name">
+                    </mat-form-field>
+                    <!-- Last Name -->
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Last name</mat-label>
+                        <input matInput formControlName="lastName" placeholder="Last name">
+                    </mat-form-field>
+                    <!-- Email -->
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" placeholder="email">
+                    </mat-form-field>
+                    <!-- Sport -->
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Sport</mat-label>
+                        <mat-select>
+                            <mat-option value="option">Athletism</mat-option>
+                            <mat-option value="option2">Football</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </form>
+            </mat-tab>
+            <mat-tab label="Athletes">
+                <div class="container my-4">
+                    Atletas
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </sp-dialog-content>
+    <sp-dialog-actions>
+        <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+    </sp-dialog-actions>
+</sp-dialog>

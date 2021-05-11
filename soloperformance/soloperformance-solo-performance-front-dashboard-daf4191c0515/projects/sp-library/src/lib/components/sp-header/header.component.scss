@@ -1,0 +1,69 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  &__container {
+    height: 100%;
+    background-color: transparent;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    &--fluid {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    align-items: center;
+    white-space: nowrap;
+
+    &--expanded {
+      flex: 1 1 auto;
+    }
+
+    &--title {
+      font-weight: 700;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    cursor: pointer;
+  }
+
+  &__user {
+    cursor: pointer;
+
+    &-name {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-family: "Caros Bold";
+    }
+
+    &-photo {
+      width: 40px;
+      height: 40px;
+    }
+
+    &-expand {
+      width: 7.45px;
+      height: auto;
+    }
+  }
+}

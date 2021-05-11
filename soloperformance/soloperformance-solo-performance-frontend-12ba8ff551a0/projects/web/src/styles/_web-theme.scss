@@ -1,0 +1,113 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+$sp-primary: (50: $primary,
+    100:$primary,
+    200:$primary,
+    300:$primary,
+    400:$primary,
+    500:$primary,
+    600:$primary,
+    700:$primary,
+    800:$primary,
+    900:$primary,
+    A100:$primary,
+    A200:$primary,
+    A400:$primary,
+    A700:$primary,
+    contrast: (50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $light-primary-text,
+        400: $light-primary-text,
+        500: $light-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $light-primary-text,
+        A400: $light-primary-text,
+        A700: $light-primary-text,
+    ));
+
+$sp-accent: (50: $accent,
+    100:$accent,
+    200: $accent,
+    300:$accent,
+    400:$accent,
+    500:$accent,
+    600:$accent,
+    700:$accent,
+    800:$accent,
+    900:$accent,
+    A100:$accent,
+    A200:$accent,
+    A400:$accent,
+    A700:$accent,
+    contrast: (50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $light-primary-text,
+        400: $light-primary-text,
+        500: $light-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $light-primary-text,
+        A400: $light-primary-text,
+        A700: $light-primary-text,
+    ));
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config($font-family: 'Caros, Roboto, monospace',
+    /* <h1> */
+    $headline: mat-typography-level(32px, 48px, 700),
+    /* <h2> */
+    $title: mat-typography-level(20px, 32px, 700),
+    /* <h3> */
+    $subheading-2: mat-typography-level(14px, 24px, 700),
+    /* <h4> */
+    $subheading-1: mat-typography-level(12px, 20px, 500),
+    /* <Base body> */
+    $body-1: mat-typography-level(14px, 24px, 500));
+
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($custom-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$candy-app-primary: mat-palette($sp-primary);
+$candy-app-accent: mat-palette($sp-accent, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$candy-app-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as `color` or `typography`.
+$candy-app-theme: mat-light-theme((color: (primary: $candy-app-primary,
+            accent: $candy-app-accent,
+            warn: $candy-app-warn)));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($candy-app-theme);

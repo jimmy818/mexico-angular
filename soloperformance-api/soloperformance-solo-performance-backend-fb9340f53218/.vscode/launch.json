@@ -1,0 +1,11 @@
+{
+    "name": "Django: Test",
+    "type": "python",
+    "request": "launch",
+    "program": "${workspaceFolder}/manage.py",
+    "env": {"DJANGO_SETTINGS_MODULE": "settings"},
+    "args": [
+        "test"
+    ],
+    "django": true
+}

@@ -1,0 +1,19 @@
+.card {
+  &__container {
+    width: 100%;
+    min-height: 100%;
+    border-radius: 8px;
+    background-color: #fff;
+
+    &--expanded {
+      height: 100%;
+    }
+  }
+
+  &__title {
+    display: block;
+    font-size: 16px;
+    font-family: 'Caros Bold';
+    margin-bottom: 15px;
+  }
+}

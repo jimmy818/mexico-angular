@@ -1,0 +1,27 @@
+<div class="sp-panel__container">
+    <div class="sp-panel__header">
+        <ng-container *ngIf="header">
+            <div class="sp-panel__header-collapse">
+                <button mat-icon-button
+                    (click)="expandCollapse()">
+                    <svg class="sp-panel__collapse-button"
+                        width="11" height="6"
+                        viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        [class.sp-panel__collapse-button--collapsed]="collapsed">
+                        <path d="M1.5 5L4.7929 1.7071C5.1834 1.3166 5.8166 1.3166 6.2071 1.7071L9.5 5" stroke="#A8ABB9"
+                            stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+            <div class="sp-panel__header-content">
+                <ng-container *ngTemplateOutlet="header.content"></ng-container>
+            </div>
+        </ng-container>
+    </div>
+    <div class="sp-panel__body"
+        [class.sp-panel__body--collapsed]="collapsed">
+        <ng-container *ngIf="body">
+            <ng-container *ngTemplateOutlet="body.content"></ng-container>
+        </ng-container>
+    </div>
+</div>

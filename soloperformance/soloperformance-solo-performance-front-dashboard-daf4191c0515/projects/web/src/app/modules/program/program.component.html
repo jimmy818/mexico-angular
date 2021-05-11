@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-end mb-4">
+  <button mat-stroked-button color="primary" type="button" class="mr-4" (click)="add('assign')">Assign program</button>
+  <button mat-raised-button color="primary" type="button" [matMenuTriggerFor]="beforeMenu">New program</button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item (click)="newProgram()">New program</button>
+    <button mat-menu-item (click)="add('program')">Library´s program</button>
+  </mat-menu>
+</div>
+<sp-card [class]="'mb-4'" *ngFor="let item of programs; let i = index;">
+  <div class="row">
+    <div class="col-2">
+      <p class="mb-1" *ngIf="item.athletes.length > 0">athletes</p>
+      <web-imgs [imgs]="item.athletes" [max]="3" color="#A8ABB9"></web-imgs>
+      <p class="mb-1 mt-4" *ngIf="item.teams.length > 0">teams</p>
+      <web-imgs [imgs]="item.teams" [max]="3" color="#A8ABB9"></web-imgs>
+    </div>
+    <div class="col-8">
+      <input class="title" type="text" name="" [value]="item.name" placeholder="Program`s name">
+      <program-menu-top [phases]="item.phases"></program-menu-top>
+    </div>
+    <div class="col-2">
+        <button mat-button class="save">Save as template <img src="assets/icons/bookmark.svg" alt="save"></button>
+        <button mat-icon-button class="close" (click)="programs.splice(i, 1)"><img src="assets/icons/add.svg" alt="edit"></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <button mat-raised-button color="primary" type="button" class="d-flex ml-auto mr-2" (click)="add('phase')">Add phase</button>
+      <program-menu-left [phases]="item.phases"></program-menu-left>
+    </div>
+    <div class="col-8">
+      <program-calendar></program-calendar>
+    </div>
+    <div class="col-2">
+      <program-menu-right></program-menu-right>
+    </div>
+  </div>
+</sp-card>

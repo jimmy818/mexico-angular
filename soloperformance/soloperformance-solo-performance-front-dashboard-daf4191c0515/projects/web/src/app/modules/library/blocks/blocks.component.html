@@ -1,0 +1,42 @@
+<sp-card>
+    <sp-header [fluid]="true">
+        <sp-header-group [expanded]="true">
+            <a class="sp-link-button"
+                mat-button
+                routerLinkActive="sp-link-button--selected"
+                [routerLink]="['./all-blocks']">
+                All
+            </a>
+            <a class="sp-link-button"
+                mat-button
+                routerLinkActive="sp-link-button--selected"
+                [routerLink]="['./my-blocks']">
+                My blocks
+            </a>
+            <a class="sp-link-button"
+                mat-button
+                routerLinkActive="sp-link-button--selected"
+                [routerLink]="['./institutional-blocks']">
+                Institutional blocks
+            </a>
+        </sp-header-group>
+        <sp-header-group>
+            <sp-input-search class="my-n2"
+                [placeholder]="'Search a block’s name'">
+            </sp-input-search>
+            <button class="ml-3"
+                mat-flat-button color="primary">
+                Assign block
+            </button>
+            <button class="ml-3"
+                mat-flat-button color="primary">
+                New block
+            </button>
+        </sp-header-group>
+    </sp-header>
+</sp-card>
+<div class="mt-4">
+    <sp-card>
+        <router-outlet></router-outlet>
+    </sp-card>
+</div>

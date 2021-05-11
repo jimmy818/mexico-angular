@@ -1,0 +1,59 @@
+$color1: #ea1c2c;
+$color2: #10181f;
+$color3: #192d3f;
+$color4: #a8abb9;
+$color5: #6e788f;
+$color6: #ecedf4;
+$color7: #F8F9FC;
+
+$white: #ffffff;
+
+$accent: $color1;
+$primary: $color2;
+
+$primary-web:$color3;
+$accent-web:$accent;
+
+$button-background: $color3;
+$button-color: $white;
+$button-flat-background: $white;
+$button-flat-color: $color5;
+
+$menu-option-background: $white;
+$menu-option-color: $color5;
+
+$border-color: $color6;
+$border-radius: 6px;
+
+$background-color: #F6F7FB;
+$background-color-selected: #F6F7FB;
+
+$font-size: 14px;
+$font-weight-normal: 500;
+$font-weight-bold: 700;
+$font-color-primary: $color2;
+$font-color-secondary: $color5;
+$font-color-inactive: $color4;
+$font-color-no-data: $color4;
+
+$header-height: 80px;
+$margin: 1.5rem;
+$padding: 25px;
+$padding-sm: 15px;
+
+$sidebar-z-index: 1080;
+
+$backdrop-color: rgba(60, 72, 88, 0.75);
+$backdrop-modal-z-index: 1090;
+$backdrop-spinner-z-index: 1100;
+
+:root {
+    --accent: #{$accent};
+    --primary: #{$primary};
+    --font-color: #{$primary};
+    --font-color-secondary: #{$font-color-secondary};
+    --font-weight-bold: #{$font-weight-bold};
+    --border-color: #{$border-color};
+    --header-height: #{$header-height};
+    --margin: #{$margin};
+}

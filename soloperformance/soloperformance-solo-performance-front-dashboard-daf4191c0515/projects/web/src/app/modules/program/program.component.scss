@@ -1,0 +1,26 @@
+p{
+  color: #A8ABB9;
+}
+.title{
+  font-size: 20px;
+  color: #10181F;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  border: none;
+}
+button.save{
+  font-size: 12px;
+  color: #A8ABB9;
+  font-weight: 500;
+}
+button.close{
+  -webkit-transform: rotate(45deg);
+ -moz-transform: rotate(45deg);
+ -ms-transform: rotate(45deg);
+ -o-transform: rotate(45deg);
+ transform: rotate(45deg);
+}
+.mat-step-icon .mat-step-icon-state-edit, .mat-step-icon-state-number{
+  background-color: #A8ABB9!important;
+}

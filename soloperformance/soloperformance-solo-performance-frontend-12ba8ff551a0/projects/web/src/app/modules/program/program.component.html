@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-end mb-4">
+  <button mat-stroked-button color="primary" type="button" class="mr-4">Assign program</button>
+  <button mat-raised-button color="primary" type="button">New program</button>
+</div>
+<sp-card>
+  <div class="row">
+    <div class="col-2">
+      <p class="mb-1">athletes</p>
+      <web-imgs [imgs]="athletes" [max]="3" color="#A8ABB9"></web-imgs>
+      <p class="mb-1 mt-4">teams</p>
+      <web-imgs [imgs]="teams" [max]="3" color="#A8ABB9"></web-imgs>
+    </div>
+    <div class="col-8">
+      <p class="text-center title">Jump & Agility Program</p>
+      <program-menu-top></program-menu-top>
+    </div>
+    <div class="col-2">
+      <div class="d-flex justify-content-end mb-3">
+        <button mat-button class="save">Save as template <img src="assets/icons/bookmark.svg" alt="save"></button>
+        <button mat-icon-button class="close"><img src="assets/icons/add.svg" alt="edit"></button>
+      </div>
+      <button mat-raised-button color="primary" type="button" class="d-flex ml-auto mr-2">Add phase</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 d-flex align-items-end justify-content-center">
+      <program-menu-left></program-menu-left>
+    </div>
+    <div class="col-8 d-flex justify-content-center align-items-center ">
+      <img src="https://www.pngrepo.com/download/164/calendar.png"  width="250" alt="">
+    </div>
+    <div class="col-2">
+      <program-menu-right></program-menu-right>
+    </div>
+  </div>
+</sp-card>

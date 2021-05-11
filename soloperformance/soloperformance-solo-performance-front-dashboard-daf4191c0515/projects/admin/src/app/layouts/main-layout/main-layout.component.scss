@@ -1,0 +1,6 @@
+.sp-main-layout {
+    &__container {
+        $padding-top: calc(var(--header-height) + var(--margin));
+        padding: $padding-top 0 var(--margin);
+    }
+}

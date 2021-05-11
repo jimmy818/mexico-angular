@@ -1,0 +1,13 @@
+<div class="row my-2" *ngFor="let item of phase; let i = index;">
+  <div class="vertical box">
+    <div class="rotate">
+      <div >Phase {{i + 1}}</div>
+      <div class="active">{{item.name}}</div>
+    </div>
+  </div>
+  <div class="horizontal">
+    <div class="box my-2" [class.active]="item.active == week.id" (click)="item.active = week.id" *ngFor="let week of item.weeks; let ii = index;">
+      <span>1</span><br> Out of 5
+    </div>
+  </div>
+</div>

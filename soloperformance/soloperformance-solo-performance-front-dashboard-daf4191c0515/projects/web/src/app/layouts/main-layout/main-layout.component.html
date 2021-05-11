@@ -1,0 +1,11 @@
+<!-- Router -->
+<main #main class="sp-main-layout__main container-fluid px-4">
+    <router-outlet></router-outlet>
+</main>
+
+<!-- Header -->
+<web-header class="sp-header" #header></web-header>
+
+<!-- Control de progreso de proceso en ejecución-->
+<sp-progress-spinner [isRunning]="spinnerIsRunning">
+</sp-progress-spinner>

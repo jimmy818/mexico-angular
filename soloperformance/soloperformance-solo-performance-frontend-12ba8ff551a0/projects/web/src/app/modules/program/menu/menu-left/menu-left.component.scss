@@ -1,0 +1,52 @@
+.box{
+  border: 1px solid #ECEDF4;
+  border-radius: 4px;
+  color: #A8ABB9;
+}
+.active{
+  color: #10181F;
+}
+
+.vertical{
+  width: 60px;
+  position: relative;
+  margin-right: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vertical div.rotate{
+  transform: rotate(270deg);
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 17px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 70px;
+  margin-left: -45px;
+  // text-overflow: ellipsis;
+  white-space: pre;
+  color: #A8ABB9;
+}
+
+.horizontal {
+  text-align: center;
+  width: 92px;
+}
+.horizontal .box{
+  font-size: 12px;
+  font-weight: bold;
+}
+.horizontal .box:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, .04);
+}
+.horizontal .box span{
+  font-size: 16px;
+}
+
+.horizontal .box:first-child{
+  margin-top: 0px!important;
+}
+.horizontal .box:last-child {
+  margin-bottom: 0px!important;
+}

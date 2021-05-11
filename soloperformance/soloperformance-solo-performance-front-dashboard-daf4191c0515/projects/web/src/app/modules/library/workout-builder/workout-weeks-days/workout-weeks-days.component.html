@@ -1,0 +1,24 @@
+<sp-dialog [dialogContentClass]="'sp-workout-weeks-days__dialog-content'">
+    <sp-dialog-title [title]="'Workout Days'"
+        [subtitle]="'Select the day for workout creation'">
+    </sp-dialog-title>
+    <sp-dialog-content class="sp-workout-weeks-days__content">
+        <sp-weeks-days [weeks]="weeksDays"
+            (change)="onWeeksDaysChange($event)">
+        </sp-weeks-days>
+    </sp-dialog-content>
+    <sp-dialog-actions>
+        <button type="button"
+            mat-stroked-button
+            [mat-dialog-close]="null">
+            Cancel
+        </button>
+        <button type="button"
+            mat-flat-button
+            color="primary"
+            [disabled]="!weeksDays.length"
+            (click)="continueClick()">
+            Add workout
+        </button>
+    </sp-dialog-actions>
+</sp-dialog>

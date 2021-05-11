@@ -1,0 +1,42 @@
+<sp-header>
+    <!-- Logotipo -->
+    <sp-header-group>
+        <img [src]="logo" alt="Solo Performance">
+    </sp-header-group>
+    <!-- Menú -->
+    <sp-header-group [expanded]="true">
+        <button mat-button class="sp-header__option sp-header__option--selected ml-4">
+            Administration
+        </button>
+        <button mat-button class="sp-header__option">
+            Gallery
+        </button>
+    </sp-header-group>
+    <!-- Opciones -->
+    <sp-header-group>
+        <mat-icon svgIcon="settings" class="sp-header__icon"></mat-icon>
+        <mat-icon svgIcon="notifications" class="sp-header__icon"></mat-icon>
+        <!-- Usuario en sesión -->
+        <button mat-button [matMenuTriggerFor]="menu">
+            <div class="d-flex align-items-center py-3">
+                <div class="sp-header__user d-flex">
+                    <span class="sp-header__user-name mx-3">
+                        {{userInfo?.fullName}}
+                    </span>
+                    <mat-icon class="sp-header__user-photo mr-3" svgIcon="account"></mat-icon>
+                    <mat-icon class="sp-header__user-expand" svgIcon="expand"></mat-icon>
+                </div>
+            </div>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+            <div class="sp-header__user-info">
+                <mat-icon svgIcon="account"></mat-icon>
+                <span>{{userInfo?.email}}</span>
+            </div>
+            <button mat-menu-item (click)="logout()">
+                <mat-icon svgIcon="logout"></mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </sp-header-group>
+</sp-header>

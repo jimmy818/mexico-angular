@@ -1,0 +1,46 @@
+.sp-button {
+    position: relative;
+    font-weight: 500;
+
+    &--stroked {
+        svg {
+            fill: $button-flat-color;
+        }
+    }
+
+    &--icon-sm {
+        mat-icon {
+            svg {
+                height: 12px;
+            }
+        }
+    }
+
+    &--bold {
+        .mat-button-wrapper {
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    &--filter {
+        border-radius: 12px;
+        margin: 0 5px;
+    }
+
+    &--secondary {
+        color: var(--font-color-secondary);
+    }
+
+    &--selected-accent {
+        &::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            background-color: $accent;
+        }
+    }
+}

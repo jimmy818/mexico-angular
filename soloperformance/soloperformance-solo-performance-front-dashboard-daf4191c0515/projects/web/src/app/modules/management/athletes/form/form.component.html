@@ -1,0 +1,59 @@
+<!-- <form class="sp-form" [formGroup]="form"> -->
+  <!-- <ng-container formGroupName="name"> -->
+      <!-- <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Name</mat-label>
+          <input matInput
+              formControlName="name"
+              placeholder="Name"
+              required>
+      </mat-form-field> -->
+
+      <!-- Athlete’s name -->
+      <!-- <mat-form-field appearance="standard">
+        <mat-label>Athlete’s name</mat-label>
+        <input matInput placeholder="Name" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field> -->
+
+      <!-- Team -->
+      <!-- <mat-form-field appearance="standard">
+        <mat-label>Team</mat-label>
+        <mat-select>
+          <mat-option value="option">Team 1</mat-option>
+          <mat-option value="option">Team 2</mat-option>
+          <mat-option value="option">Team 3</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <!-- Email -->
+      <!-- <mat-form-field appearance="standard">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field> -->
+
+      <!-- Date of Birth -->
+      <!-- <mat-form-field appearance="standard">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="birthdate">
+          <mat-datepicker-toggle matSuffix [for]="birthdate"></mat-datepicker-toggle>
+          <mat-datepicker #birthdate></mat-datepicker>
+      </mat-form-field> -->
+  <!-- </ng-container> -->
+<!-- </form> -->
+
+<sp-dialog>
+  <sp-dialog-title
+      title="New Athlete"
+      subtitle="Select the following information for your new athlete">
+  </sp-dialog-title>
+  <sp-dialog-content>
+
+      <p>form athletes works!</p>
+
+  </sp-dialog-content>
+  <sp-dialog-actions>
+    <button mat-stroked-button color="primary" [mat-dialog-close]="null" type="button">Cancel</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+  </sp-dialog-actions>
+</sp-dialog>

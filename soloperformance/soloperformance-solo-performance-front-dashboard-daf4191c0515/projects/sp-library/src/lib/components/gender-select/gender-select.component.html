@@ -1,0 +1,11 @@
+<mat-form-field appearance="outline" class="w-100">
+    <mat-label>Gender</mat-label>
+    <mat-select [required]="required?true:null"
+        (selectionChange)="selectionChanged($event)">
+        <mat-option *ngIf="!required" [value]="null">Gender</mat-option>
+        <mat-option *ngFor="let gender of genders"
+            [value]="gender">
+            {{gender | gender}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

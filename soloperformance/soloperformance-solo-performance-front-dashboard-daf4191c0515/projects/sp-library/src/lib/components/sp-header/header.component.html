@@ -1,0 +1,13 @@
+<div class="header__container d-flex align-items-center"
+  [class.header__container--fluid]="fluid">
+  <ng-container *ngFor="let group of groupItems | async">
+    <div class="header__group"
+      [class.justify-content-start]="group.alignment===groupAlignment.left"
+      [class.justify-content-center]="group.alignment===groupAlignment.center"
+      [class.justify-content-end]="group.alignment===groupAlignment.right"
+      [class.header__group--expanded]="group.expanded"
+      [class.header__group--title]="group.isTitle">
+      <ng-container *ngTemplateOutlet="group.groupContent"></ng-container>
+    </div>
+  </ng-container>
+</div>

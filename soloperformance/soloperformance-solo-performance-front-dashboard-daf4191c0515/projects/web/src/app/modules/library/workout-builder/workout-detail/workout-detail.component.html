@@ -1,0 +1,113 @@
+<div class="web-workout-detail__container">
+    <div>
+        <sp-header class="mb-4">
+            <sp-header-group [expanded]="true">
+            </sp-header-group>
+            <sp-header-group>
+                <sp-input-search [createParams]="false"
+                    [placeholder]="'Search an exercise\'s name'"
+                    [disableAnimation]="true"
+                    (focus)="inputSearchFocus()"
+                    (blur)="inputSearchBlur()">
+                </sp-input-search>
+                <!-- <mat-menu #exerciseMenu="matMenu" [class]="'sp-exercise__menu-container'">
+                    <div spClickStopPropagation
+                        style="display: flex;flex-wrap: wrap;padding: 5px 15px;padding-right:0;">
+                        <div *ngFor="let exercise of exercises"
+                            style="width: 140px;overflow: hidden;padding: 10px;padding-bottom:8px;margin-right: 15px;margin-bottom: 15px;font-size: 0.8rem;font-weight: 700;border: 1px solid #ECEDF4;background-color: white;border-radius: 6px;">
+                            <img src="assets/images/example-exercise-photo-1.svg" alt="" style="width: 120px;">
+                            {{exercise.name}}
+                        </div>
+                    </div>
+                </mat-menu> -->
+                <button class="web-workout-detail__option"
+                    mat-button
+                    [disabled]="true">
+                    Show media
+                </button>
+                <button class="web-workout-detail__option"
+                    mat-button
+                    (click)="addWorkoutClick()">
+                    Add workout
+                </button>
+                <sp-button-toggle class="web-workout-detail__option web-workout-detail__option--weekly"
+                    [changeText]="'Progression'"
+                    (change)="viewChange($event)">
+                    Weekly
+                </sp-button-toggle>
+                <button class="web-workout-detail__option"
+                    mat-button
+                    [matMenuTriggerFor]="blockTypeMenu">
+                    Block type
+                    <img src="assets/icons/arrow-down.svg" alt="" class="ml-1">
+                </button>
+                <mat-menu #blockTypeMenu="matMenu" xPosition="before">
+                    <div spClickStopPropagation>
+                        <mat-selection-list #blockCategoryList>
+                            <mat-list-option *ngFor="let category of categories"
+                                [checkboxPosition]="'before'"
+                                [style.height]="'48px'"
+                                [color]="'primary'"
+                                [value]="category">
+                                <div style="display: flex;align-items: center;">
+                                    <img [src]="category.icon" alt="" class="mr-2">
+                                    <span matLine>{{category.name}}</span>
+                                </div>
+                            </mat-list-option>
+                        </mat-selection-list>
+                    </div>
+                </mat-menu>
+            </sp-header-group>
+        </sp-header>
+    </div>
+    <div class="container-fluid">
+        <div class="sp-exercise__filter-container row mt-n2"
+            [class.sp-exercise__filter-container--expanded]="exerciseFilterExpanded">
+            <!-- <div class="col-12">
+                <sp-card>
+                    <button mat-button *ngFor="let exercise of exercises">
+                        {{exercise.name}}
+                        <img *ngIf="exercise.subcategories.length" src="assets/icons/arrow-down.svg" alt="">
+                    </button>
+                </sp-card>
+            </div> -->
+            <div class="col-12">
+                <sp-card>
+                    <div style="display: flex;flex-wrap: wrap;">
+                        <div *ngFor="let exercise of exercises"
+                            style="width: 156px;overflow: hidden;padding: 10px;padding-bottom:8px;margin-right: 15px;margin-bottom: 15px;font-size: 0.8rem;font-weight: 700;border: 1px solid #ECEDF4;background-color: white;border-radius: 6px;">
+                            <img src="assets/images/example-exercise-photo-1.svg" alt="" style="width:100%;">
+                            {{exercise.name}}
+                        </div>
+                    </div>
+                </sp-card>
+            </div>
+        </div>
+        <div class="row">
+            <ng-container *ngFor="let workout of workouts">
+                <div class="web-workout-detail__panel-container col-3">
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        Day 1...
+                    </div>
+                    <sp-panel>
+                        <sp-panel-header>
+                            <sp-header>
+                                <sp-header-group [expanded]="true">
+                                    Day 1...
+                                </sp-header-group>
+                                <sp-header-group>
+                                    Hours...
+                                </sp-header-group>
+                            </sp-header>
+                        </sp-panel-header>
+                        <sp-panel-body>
+                            <div class="web-workout-detail__panel-body">
+                                Blocks...
+                            </div>
+                        </sp-panel-body>
+                    </sp-panel>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

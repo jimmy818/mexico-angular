@@ -1,0 +1,43 @@
+<div class="mb-4">
+    <sp-header class="my-n2" [fluid]="true">
+        <sp-header-group>
+            <a class="sp-link-button sp-link-button--bold"
+                mat-button
+                [routerLink]="['./programs']"
+                routerLinkActive="sp-link-button--selected">
+                Programs
+            </a>
+            <a class="sp-link-button sp-link-button--bold ml-4"
+                mat-button
+                [routerLink]="['./phases']"
+                routerLinkActive="sp-link-button--selected">
+                Phases
+            </a>
+            <a class="sp-link-button sp-link-button--bold ml-4"
+                mat-button
+                [routerLink]="['./workouts']"
+                routerLinkActive="sp-link-button--selected">
+                Workouts
+            </a>
+            <a class="sp-link-button sp-link-button--bold ml-4"
+                mat-button
+                [routerLink]="['./blocks']"
+                routerLinkActive="sp-link-button--selected">
+                Blocks
+            </a>
+            <a class="sp-link-button sp-link-button--bold ml-4"
+                mat-button
+                [routerLink]="['./exercises']"
+                routerLinkActive="sp-link-button--selected">
+                Exercises
+            </a>
+            <a class="sp-link-button sp-link-button--bold ml-4"
+                mat-button
+                [routerLink]="['./template-sets']"
+                routerLinkActive="sp-link-button--selected">
+                Template sets
+            </a>
+        </sp-header-group>
+    </sp-header>
+</div>
+<router-outlet></router-outlet>

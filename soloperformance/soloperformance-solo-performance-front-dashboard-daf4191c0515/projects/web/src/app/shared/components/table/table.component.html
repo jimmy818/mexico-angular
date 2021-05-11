@@ -1,0 +1,16 @@
+<table class="w-100" mat-table matSort [dataSource]="data" (matSortChange)="sortData($event)">
+    <ng-content></ng-content>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"
+        class="sp-table__row sp-table__row--selectable"
+        [class.sp-table__row--selected]="row===selectedInstitution"
+        (click)="showUserDetail(row)"></tr>
+</table>
+<mat-paginator
+    [length]="paginatorConfig?.length"
+    [pageSize]="paginatorConfig?.pageSize"
+    [pageSizeOptions]="paginatorConfig?.pageSizeOptions"
+    (page)="setPage($event)"
+    showFirstLastButtons>
+</mat-paginator>

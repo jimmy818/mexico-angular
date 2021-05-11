@@ -1,0 +1,55 @@
+:host {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 80px;
+  background-color: #fff;
+  display: block;
+}
+
+.sp-header {
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    &:last-child {
+      margin-right: 0;
+    }
+    cursor: pointer;
+  }
+  &__option {
+    font-weight: 800;
+    &--selected {
+      color: #83a6ff;
+    }
+  }
+  &__user {
+    cursor: pointer;
+    &-name {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    &-photo {
+      width: 40px;
+      height: 40px;
+    }
+    &-expand {
+      width: 7.45px;
+      height: auto;
+    }
+    &-info {
+      width: 250px;
+      height: 48px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      .mat-icon {
+        margin-right: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,285 @@
+<sp-card [expand]="true" class="sp-widget">
+    <div class="sp-widget__container">
+        <!-- Encabezado, Filtros -->
+        <div class="sp-widget__header my-n1">
+            <sp-header [fluid]="true">
+                <sp-header-group
+                    [expanded]="true">
+                    <div class="web-main-widget__hg-filter">
+                        <button *ngFor="let filter of filters"
+                            mat-button
+                            [color]="filter.selected?'primary':null"
+                            [class.mat-flat-button]="filter.selected"
+                            (click)="onFilterClick(filter)">
+                            {{filter.text}}
+                        </button>
+                    </div>
+                </sp-header-group>
+                <sp-header-group [alignment]="headerGroupAlignment.right">
+                    <sp-input-search class="mr-3"
+                        placeholder="Search an institution, team or athlete"
+                        [createParams]="false">
+                    </sp-input-search>
+                </sp-header-group>
+                <sp-header-group>
+                    <button class="sp-button sp-button--stroked"
+                        #tooltip="matTooltip"
+                        mat-icon-button
+                        matTooltip="Widget options"
+                        [matMenuTriggerFor]="menu">
+                        <mat-icon svgIcon="more_vertical"></mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                        <button mat-menu-item (click)="deleteWidget()">Erase widget</button>
+                        <button mat-menu-item (click)="duplicateWidget()">Duplicate widget</button>
+                    </mat-menu>
+                </sp-header-group>
+            </sp-header>
+        </div>
+        <!-- Contenido -->
+        <div class="sp-widget__body">
+            <!-- Periodicidad: Semanal, Mensual, Anual -->
+            <div
+                class="sp-border-top sp-border-bottom d-flex mt-4 pt-2 justify-content-between">
+                <div class="d-flex align-items-center mt-n2">
+                    <button class="sp-button sp-button--icon-sm"
+                        mat-icon-button
+                        (click)="prevMonth()">
+                        <mat-icon svgIcon="chevron-left">
+                        </mat-icon>
+                    </button>
+                    <span class="web-main-widget__period">
+                        {{selectedDate|date:'MMMM, yyyy'}}
+                    </span>
+                    <button class="sp-button sp-button--icon-sm"
+                        mat-icon-button
+                        (click)="nextMonth()">
+                        <mat-icon svgIcon="chevron-right">
+                        </mat-icon>
+                    </button>
+                </div>
+                <div class="d-flex align-items-center justify-content-center mt-n2 overflow-auto">
+                    <ng-container *ngIf="selectedTeam">
+                        <button class="sp-button sp-button--icon-sm"
+                            mat-icon-button
+                            [disabled]="leftBoundReached"
+                            [hidden]="leftBoundReached && rightBoundReached"
+                            (click)="moveLeft()">
+                            <mat-icon svgIcon="chevron-left">
+                            </mat-icon>
+                        </button>
+                        <drag-scroll #teamScroll class="web-main-widget__team-scroll"
+                            [scrollbar-hidden]="true"
+                            (reachesLeftBound)="reachesLeftBound($event)"
+                            (reachesRightBound)="reachesRightBound($event)">
+                            <div mat-button *ngFor="let team of teams"
+                                drag-scroll-item
+                                class="web-main-widget__team-scroll-item"
+                                (click)="selectTeam(team)">
+                                <div class="web-main-widget__team-icon-container"
+                                    [class.web-main-widget__team-icon-container--selected]="team===selectedTeam">
+                                    <img [src]="team.image?team.image:'assets/icons/image.svg'" alt=""
+                                        class="web-main-widget__team-icon">
+                                </div>
+                            </div>
+                        </drag-scroll>
+                        <button class="sp-button sp-button--icon-sm"
+                            mat-icon-button
+                            [disabled]="rightBoundReached"
+                            [hidden]="leftBoundReached && rightBoundReached"
+                            (click)="moveRight()">
+                            <mat-icon svgIcon="chevron-right">
+                            </mat-icon>
+                        </button>
+                    </ng-container>
+                </div>
+                <div class="d-flex">
+                    <button class="sp-button sp-button--bold sp-button--icon-sm"
+                        mat-button
+                        [color]="selectedPeriodicity===periodicity.week?'accent':null"
+                        [class.sp-button--selected-accent]="selectedPeriodicity===periodicity.week"
+                        (click)="onPeriodicityClick(periodicity.week)">
+                        Week
+                    </button>
+                    <button class="sp-button sp-button--bold sp-button--icon-sm"
+                        mat-button
+                        [color]="selectedPeriodicity===periodicity.month?'accent':null"
+                        [class.sp-button--selected-accent]="selectedPeriodicity===periodicity.month"
+                        (click)="onPeriodicityClick(periodicity.month)">
+                        Month
+                    </button>
+                    <button class="sp-button sp-button--bold sp-button--icon-sm"
+                        mat-button
+                        [color]="selectedPeriodicity===periodicity.year?'accent':null"
+                        [class.sp-button--selected-accent]="selectedPeriodicity===periodicity.year"
+                        (click)="onPeriodicityClick(periodicity.year)">
+                        Year
+                    </button>
+                </div>
+            </div>
+            <!-- Nuevo evento, fechas de periodicidad -->
+            <div class="d-flex">
+                <!-- Nuevo evento/ programa/ workout -->
+                <div class="web-main-widget__event d-flex align-items-center justify-content-center">
+                    <button mat-stroked-button
+                        #tooltip="matTooltip"
+                        matTooltip="Create new event, program or workout"
+                        [matMenuTriggerFor]="createNewMenu">
+                        <img src="assets/icons/add.svg" alt="">
+                        <span class="ml-2">Create new</span>
+                    </button>
+                    <mat-menu #createNewMenu="matMenu">
+                        <button mat-menu-item>Event</button>
+                        <button mat-menu-item>Program</button>
+                        <button mat-menu-item>Workout</button>
+                    </mat-menu>
+                </div>
+                <!-- Fechas de periodicidad -->
+                <div class="web-main-widget__periodicity sp-border-left">
+                    <button mat-icon-button class="sp-button sp-button--icon-sm mx-2"
+                        (click)="prevPeriodicity()">
+                        <mat-icon svgIcon="chevron-left"></mat-icon>
+                    </button>
+                    <ng-container [ngSwitch]="selectedPeriodicity">
+                        <ng-container *ngSwitchCase="periodicity.week">
+                            <div *ngFor="let date of periodicityDates"
+                                class="web-main-widget__periodicity-date"
+                                [style.width]="(100/periodicityDates.length).toString() + '%'"
+                                [class.web-main-widget__periodicity-date--currdayweek]="checkCurrentDate(date)">
+                                <div class="d-flex flex-column align-items-center">
+                                    <span class="web-main-widget__periodicity-day">
+                                        {{date|date:'d'}}
+                                    </span>
+                                    <span class="web-main-widget__periodicity-weekday">
+                                        {{date|date:'EEEE'}}
+                                    </span>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="periodicity.month">
+                            <div *ngFor="let date of periodicityDates"
+                                class="web-main-widget__periodicity-date"
+                                [style.width]="(100/periodicityDates.length).toString() + '%'"
+                                [class.web-main-widget__periodicity-date--currdaymonth]="checkCurrentDate(date)">
+                                <span>{{date|date:'d'}}</span>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngSwitchDefault>
+                            <div *ngFor="let date of periodicityDates"
+                                class="web-main-widget__periodicity-date web-main-widget__periodicity-date--month"
+                                [style.width]="(100/periodicityDates.length).toString() + '%'"
+                                [class.web-main-widget__periodicity-date--currmonth]="checkCurrentMonth(date)"
+                                (click)="goToMonth(date)">
+                                <span>{{date|date:'MMM'}}</span>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                    <button mat-icon-button class="sp-button sp-button--icon-sm"
+                        (click)="nextPeriodicity()">
+                        <mat-icon svgIcon="chevron-right"></mat-icon>
+                    </button>
+                </div>
+            </div>
+            <!-- Eventos generales, equipos/ atletas, calendario -->
+            <div class="sp-widget__content">
+                <div class="web-main-widget__events"
+                    [class.web-main-widget__events--hidden]="!eventsIsSelected">
+                    <!-- Eventos generales -->
+                    <div class="web-main-widget__event d-flex align-items-center justify-content-center">
+                        <span class="sp-font sp-font--primary sp-font--bold">General events</span>
+                    </div>
+                    <!-- Eventos generales en calendario -->
+                    <div class="web-main-widget__calendar-events sp-border-top sp-border-right sp-border-left py-4">
+                        <div class="d-flex ml-2 pl-2">
+                            <div *ngFor="let event of events"
+                                [style.width]="(100/periodicityDates.length).toString() + '%'">
+                                <web-calendar-item *ngIf="event.count"
+                                    (click)="onEventClick(event)">
+                                    <span class="sp-font sp-font--primary ">{{event.count}}</span>
+                                </web-calendar-item>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Equipos/atletas, Calendar -->
+                <div class="web-main-widget__calendar">
+                    <!-- Equipos/ atletas -->
+                    <div class="web-main-widget__catalog-container pb-4">
+                        <ng-container *ngIf="!selectedTeam;else athletesView">
+                            <mat-selection-list #teamList [multiple]="false">
+                                <mat-list-option *ngFor="let team of teams"
+                                    (click)="selectTeam(team)">
+                                    <img matListAvatar [src]="team.image?team.image:'assets/icons/image.svg'"
+                                        alt="">
+                                    <div matLine class="sp-font--bold">
+                                        {{team.name}}
+                                    </div>
+                                </mat-list-option>
+                            </mat-selection-list>
+                        </ng-container>
+                        <ng-template #athletesView>
+                            <!-- Regresar a lista de equipos -->
+                            <button mat-button class="sp-button sp-button--icon-sm"
+                                (click)="goToTeams()">
+                                <img src="assets/icons/chevron-left.svg" alt="">
+                                <span class="sp-font sp-font--primary sp-font--bold ml-2">Teams</span>
+                            </button>
+                            <!-- Lista de atletas -->
+                            <div class="d-flex flex-column align-items-start mr-4 pt-2">
+                                <ng-container *ngIf="athletes.length;else noAthletes">
+                                    <button mat-button *ngFor="let athlete of athletes"
+                                        class="mb-3"
+                                        [class.mat-stroked-button]="selectedAthlete===athlete"
+                                        (click)="selectAthlete(athlete)">
+                                        <div class="d-flex align-items-center">
+                                            <img [src]="athlete.image?athlete.image:'assets/icons/image.svg'" alt=""
+                                                class="web-main-widget__athlete-icon">
+                                            <div class="web-main-widget__athlete-name-container">
+                                                <span class="web-main-widget__athlete-name">
+                                                    {{athlete.fullName}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </ng-container>
+                                <ng-template #noAthletes>
+                                    <span class="sp-no-data">No athletes found for current team</span>
+                                </ng-template>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <!-- Calendario -->
+                    <div class="web-main-widget__calendar-content sp-border p-4">
+                        Calendar programs/phases...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer/ Daily load -->
+        <div class="sp-widget__footer web-main-widget__footer"
+            [class.web-main-widget__footer--hidden]="!statsIsSelected">
+            <div class="web-main-widget__footer-container">
+                <!-- Filtros daily load -->
+                <div class="web-main-widget__daily-load-filters d-flex flex-column align-items-start pt-4 px-4">
+                    <button *ngFor="let filter of filtersStats"
+                        mat-button
+                        [color]="filter.selected?'primary':null"
+                        [class.mat-flat-button]="filter.selected"
+                        (click)="onDailyLoadFilterClick(filter)">
+                        {{filter.text}}
+                    </button>
+                </div>
+                <!-- Gráfica daily load -->
+                <div class="web-main-widget__daily-load-content pt-4">
+                    <web-stats-chart
+                        [exercisesNumberSelected]="exercisesNumberSelected"
+                        [totalVolumeSelected]="totalVolumeSelected"
+                        [rpeSelected]="rpeSelected"
+                        [preTrainingSurveySelected]="preTrainingSurveySelected"
+                        [sessionTimeSelected]="sessionTimeSelected">
+                    </web-stats-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</sp-card>

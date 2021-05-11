@@ -1,0 +1,33 @@
+.select {
+  &--appearance-none {
+    & .mat-select-value {
+      color: $font-color-secondary;
+    }
+
+    & .mat-select-arrow {
+      color: $font-color-secondary;
+    }
+  }
+  &--filter {
+    border-radius: 12px;
+    padding: 0 16px;
+    line-height: 36px;
+    & .mat-select-value {
+      color: $font-color-secondary;
+    }
+
+    & .mat-select-arrow {
+      color: $font-color-secondary;
+    }
+    &-selected {
+      background-color: #3799ff;
+      & .mat-select-value {
+        color: #ffffff;
+      }
+
+      & .mat-select-arrow {
+        color: #ffffff;
+      }
+    }
+  }
+}

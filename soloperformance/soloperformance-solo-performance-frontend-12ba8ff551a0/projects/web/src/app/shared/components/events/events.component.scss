@@ -1,0 +1,29 @@
+@import 'variables';
+
+.web-events {
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        background-color: $background-color;
+        padding: $padding-sm;
+    }
+
+    &__event {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 150px;
+        height: 100%;
+
+        &-name {
+            // white-space: nowrap;
+            // overflow: hidden;
+            // text-overflow: ellipsis;
+        }
+
+        &-time {
+            font-size: 12px;
+        }
+    }
+}

@@ -1,0 +1,227 @@
+@import 'variables';
+
+$sidebar-width: 250px;
+$periodicity-height:74px;
+$calendar-background-color: $background-color;
+$footer-height: 250px;
+
+:host {
+    position: relative;
+}
+
+.web-main-widget {
+    height: 100%;
+    color: $font-color-secondary;
+
+    &__hg-filter {
+        button {
+            margin-right: 25px;
+        }
+    }
+
+    &__period {
+        color: $font-color-primary;
+        font-size: 16px;
+        font-weight: $font-weight-bold;
+        min-width: 140px;
+        text-align: center;
+    }
+
+    &__events {
+        display: flex;
+        height: 100px;
+        transition: height 0.15s linear;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        &--hidden {
+            height: 0;
+        }
+    }
+
+    &__event {
+        width: $sidebar-width;
+        height: 100%;
+    }
+
+    &__calendar-events {
+        flex-grow: 1;
+        background-color: $calendar-background-color;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    &__calendar {
+        display: flex;
+        flex-grow: 1;
+
+        &-content {
+            background-color: $calendar-background-color;
+            flex-grow: 1;
+        }
+    }
+
+    &__catalog {
+        &-container {
+            position: relative;
+            color: $font-color-primary;
+            width: $sidebar-width;
+            flex-shrink: 0;
+        }
+
+        &-items {
+            position: absolute;
+            width: 200%;
+            //height: 100%;
+            display: flex;
+            left: 0;
+            transition: all 0.15s linear;
+
+            &--slice {
+                left: -100%;
+            }
+        }
+
+        &-item {
+            width: 100%;
+            //height: 100%;
+            overflow-y: auto;
+        }
+    }
+
+    &__team {
+        &-scroll {
+            flex-grow: 1;
+            max-width: 100%;
+            height: 40px;
+        }
+
+        &-scroll-item {
+            display: inline-block;
+            width: 60px;
+            height: 40px;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+
+        &-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &-icon-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+
+            &--selected {
+                box-shadow: 0 0 0 1px $font-color-primary;
+            }
+        }
+    }
+
+    &__athlete {
+        &-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        &-name {
+            display: block;
+            text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &-name-container {
+            padding-left: 16px;
+            width: 140px;
+        }
+    }
+
+    &__periodicity {
+        height: $periodicity-height;
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        color: #A8ABB9;
+        overflow: hidden;
+    }
+
+    &__periodicity-day {
+        font-size: 20px;
+    }
+
+    &__periodicity-weekday {
+        font-size: 13px;
+    }
+
+    &__periodicity-date {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        font-size: 16px;
+        position: relative;
+
+        &--month {
+            cursor: pointer;
+        }
+
+        &--currdayweek,
+        &--currmonth {
+            color: $accent;
+        }
+
+        &--currdaymonth {
+            color: $white;
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $accent;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+            }
+        }
+
+        span {
+            position: relative;
+        }
+    }
+
+    &__daily-load {
+        &-filters {
+            width: 250px;
+
+            button {
+                margin-bottom: 10px;
+            }
+        }
+
+        &-content {
+            flex-grow: 1;
+        }
+    }
+
+    &__footer {
+        height: $footer-height;
+        flex-shrink: 0;
+        overflow: hidden;
+        transition: height 0.15s linear;
+
+        &--hidden {
+            height: 0;
+        }
+
+        &-container {
+            display: flex;
+            width: 100%;
+            height: $footer-height;
+        }
+    }
+}

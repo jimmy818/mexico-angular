@@ -1,0 +1,60 @@
+<!-- Backdrop -->
+<div class="sp-login__backdrop">
+    <div class="sp-login__container">
+        <!-- Logotipo -->
+        <img [src]="logo" alt="Solo Performance" class="sp-login__logo">
+        <!-- Formulario -->
+        <form [formGroup]="loginForm"
+            class="sp-login__form "
+            cdkTrapFocus
+            [cdkTrapFocusAutoCapture]="true">
+            <!-- Nombre de usuario -->
+            <mat-form-field appearance="outline" class="sp-login__form-field">
+                <mat-label>Username</mat-label>
+                <input type="text"
+                    placeholder="Username"
+                    matInput
+                    [formControlName]="controlNames.username"
+                    cdkFocusRegionStart
+                    cdkFocusInitial>
+                <mat-error *ngIf="loginForm.get(controlNames.username).hasError('required')">
+                    Username required
+                </mat-error>
+                <mat-error *ngIf="loginForm.get(controlNames.username).hasError('email')">
+                    The username must be a valid email
+                </mat-error>
+            </mat-form-field>
+            <!-- Contraseña -->
+            <mat-form-field appearance="outline" class="sp-login__form-field">
+                <mat-label>Password</mat-label>
+                <input type="password"
+                    placeholder="Password"
+                    matInput
+                    [formControlName]="controlNames.password">
+                <mat-error *ngIf="loginForm.get(controlNames.password).hasError('required')">
+                    Password required
+                </mat-error>
+            </mat-form-field>
+            <!-- Iniciar sesión -->
+            <button mat-raised-button
+                type="submit"
+                color="primary"
+                [disabled]="loginForm.invalid || loggingIn"
+                (click)="login()"
+                cdkFocusRegionEnd>
+                Login
+            </button>
+            <span class="sp-login__message-error"
+                [class.sp-login__message-error--shown]="messageError"
+                [class.sp-login__message-error--logging-in]="loggingIn">
+                {{messageError}}
+            </span>
+            <div class="sp-login__separator"></div>
+        </form>
+        <!-- Recuperar contraseña -->
+        <a class="sp-login__question"
+            (click)="forgotPasswordClick()">
+            Don't remember your password?
+        </a>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+.sp-form {
+  &__title {
+    font-size: 1.5rem;
+    font-family: "Caros Bold";
+    line-height: 22px;
+    font-weight: var(--font-weight-bold);
+    &--secondary {
+      font-size: 16px;
+    }
+  }
+  &__subtitle {
+    padding-top: 8px;
+    color: #a8abb9;
+  }
+
+  & .mat-dialog-content {
+    margin: 0;
+    padding: 0 15px;
+  }
+}
